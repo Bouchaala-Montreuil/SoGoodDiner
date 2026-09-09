@@ -3,17 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>So Good Diner — Burgers & Tacos au cœur de Fréjus</title>
-<meta name="description" content="So Good Diner, burgers smashés, tacos et american food en centre-ville de Fréjus. Pain du boulanger, viande fraîche, sauces maison. Sur place, à emporter et en livraison.">
+<title>So Good Diner — Burgers & Kumpirs à Fréjus</title>
+<meta name="description" content="So Good Diner, 65 rue du Général de Gaulle à Fréjus : burgers généreux, kumpirs garnis, wraps et sandwichs. Sur place, à emporter et en livraison.">
 <meta name="theme-color" content="#12100E">
 <link rel="canonical" href="https://sogooddiner.fr/">
 
 <!-- Open Graph -->
 <meta property="og:type" content="restaurant">
 <meta property="og:locale" content="fr_FR">
+<meta property="og:locale:alternate" content="en_GB">
 <meta property="og:site_name" content="So Good Diner">
-<meta property="og:title" content="So Good Diner — Burgers & Tacos au cœur de Fréjus">
-<meta property="og:description" content="Smashé minute sur la plancha, cheddar coulant, pain du boulanger. En plein centre-ville de Fréjus.">
+<meta property="og:title" content="So Good Diner — Burgers & Kumpirs à Fréjus">
+<meta property="og:description" content="Burgers jusqu'à 3 steaks, kumpirs maison et sauces faites en cuisine. En plein centre-ville de Fréjus.">
 <meta property="og:image" content="https://sogooddiner.fr/assets/img/hero-burger.webp">
 <meta name="twitter:card" content="summary_large_image">
 
@@ -23,7 +24,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&family=Pacifico&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/styles.css">
 
-<!-- Données structurées : à mettre à jour avec les vraies infos (adresse, tél, horaires) -->
+<!-- Données structurées : adresse vérifiée, téléphone à compléter -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -34,11 +35,18 @@
   "priceRange": "€€",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "Adresse à confirmer",
+    "streetAddress": "65 rue du Général de Gaulle",
     "addressLocality": "Fréjus",
     "postalCode": "83600",
     "addressCountry": "FR"
   },
+  "geo": { "@type": "GeoCoordinates", "latitude": 43.43244, "longitude": 6.73416 },
+  "openingHoursSpecification": [{
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    "opens": "18:00",
+    "closes": "01:00"
+  }],
   "sameAs": [
     "https://www.instagram.com/sogooddiner83/",
     "https://www.facebook.com/61587045554269/"
@@ -67,11 +75,11 @@
   </div>
 </div>
 
-<a class="skip" href="#contenu">Aller au contenu principal</a>
+<a class="skip" href="#contenu" data-i18n="a11y.skip">Aller au contenu principal</a>
 
 <!-- ===== Navigation ===== -->
 <header class="nav" id="nav">
-  <a class="nav__logo magnetic" href="#top" aria-label="So Good Diner — retour en haut">
+  <a class="nav__logo magnetic" href="#top" data-i18n-attr="aria-label:nav.logo" aria-label="So Good Diner — retour en haut">
     <svg class="nav__mark" viewBox="0 0 48 48" aria-hidden="true">
       <path d="M6 20c0-8 8-13 18-13s18 5 18 13z" fill="#F5B324"/>
       <rect x="5" y="22" width="38" height="4" rx="2" fill="#E23A2E"/>
@@ -80,39 +88,47 @@
     <span class="nav__word"><b>So Good</b><em>Diner</em></span>
   </a>
 
-  <nav class="nav__links" id="nav-links" aria-label="Navigation principale">
-    <a href="#adresse" data-navlink>L'adresse</a>
-    <a href="#signatures" data-navlink>Signatures</a>
-    <a href="#carte" data-navlink>La carte</a>
-    <a href="#emporter" data-navlink>À emporter</a>
-    <a href="#galerie" data-navlink>Galerie</a>
-    <a href="#avis" data-navlink>Avis</a>
-    <a href="#contact" data-navlink>Contact</a>
+  <nav class="nav__links" id="nav-links" data-i18n-attr="aria-label:nav.principale" aria-label="Navigation principale">
+    <a href="#adresse" data-navlink data-i18n="nav.adresse">L'adresse</a>
+    <a href="#signatures" data-navlink data-i18n="nav.signatures">Signatures</a>
+    <a href="#carte" data-navlink data-i18n="nav.carte">La carte</a>
+    <a href="#emporter" data-navlink data-i18n="nav.emporter">À emporter</a>
+    <a href="#galerie" data-navlink data-i18n="nav.galerie">Galerie</a>
+    <a href="#favoris" data-navlink data-i18n="nav.favoris">Les préférés</a>
+    <a href="#contact" data-navlink data-i18n="nav.contact">Contact</a>
   </nav>
 
   <div class="nav__actions">
+    <div class="lang" id="lang-switch" role="group" data-i18n-attr="aria-label:nav.langue" aria-label="Choisir la langue">
+      <button type="button" data-lang="fr" aria-pressed="true">FR</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    </div>
     <span class="status" id="status" role="status" aria-live="polite">
       <i class="status__dot"></i><span class="status__txt">Horaires…</span>
     </span>
-    <a class="btn btn--sm magnetic" href="#commander" data-cursor="Go !">Commander</a>
-    <button class="nav__burger" id="nav-burger" aria-expanded="false" aria-controls="menu-mobile" aria-label="Ouvrir le menu">
+    <a class="btn btn--sm magnetic" href="#commander" data-cursor="Go !" data-i18n="nav.commander">Commander</a>
+    <button class="nav__burger" id="nav-burger" aria-expanded="false" aria-controls="menu-mobile" data-i18n-attr="aria-label:nav.ouvrir" aria-label="Ouvrir le menu">
       <span></span><span></span>
     </button>
   </div>
 </header>
 
 <div class="mobile-menu" id="menu-mobile" aria-hidden="true">
-  <nav aria-label="Navigation mobile">
-    <a href="#adresse">L'adresse</a>
-    <a href="#signatures">Signatures</a>
-    <a href="#carte">La carte</a>
-    <a href="#emporter">À emporter</a>
-    <a href="#galerie">Galerie</a>
-    <a href="#avis">Avis</a>
-    <a href="#contact">Contact</a>
+  <nav data-i18n-attr="aria-label:nav.mobile" aria-label="Navigation mobile">
+    <a href="#adresse" data-i18n="nav.adresse">L'adresse</a>
+    <a href="#signatures" data-i18n="nav.signatures">Signatures</a>
+    <a href="#carte" data-i18n="nav.carte">La carte</a>
+    <a href="#emporter" data-i18n="nav.emporter">À emporter</a>
+    <a href="#galerie" data-i18n="nav.galerie">Galerie</a>
+    <a href="#favoris" data-i18n="nav.favoris">Les préférés</a>
+    <a href="#contact" data-i18n="nav.contact">Contact</a>
   </nav>
   <div class="mobile-menu__foot">
-    <a class="btn btn--block" href="#commander">Commander</a>
+    <div class="lang lang--big" role="group" data-i18n-attr="aria-label:nav.langue">
+      <button type="button" data-lang="fr" aria-pressed="true">Français</button>
+      <button type="button" data-lang="en" aria-pressed="false">English</button>
+    </div>
+    <a class="btn btn--block" href="#commander" data-i18n="nav.commander">Commander</a>
     <p class="mobile-menu__addr" id="mobile-addr"></p>
   </div>
 </div>
@@ -130,7 +146,7 @@
       <div class="hero__copy">
         <p class="eyebrow reveal" data-delay="0">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
-          Nouvelle adresse — centre-ville de Fréjus
+          <span data-i18n="hero.eyebrow">Nouvelle adresse — centre-ville de Fréjus</span>
         </p>
 
         <h1 class="hero__title">
@@ -139,33 +155,33 @@
         </h1>
 
         <p class="hero__rotator" aria-live="off">
-          <span class="hero__rotator-fixed">Toujours</span>
-          <span class="hero__rotator-word" id="hero-mot">smashé</span>
+          <span class="hero__rotator-fixed" data-i18n="hero.toujours">Toujours</span>
+          <span class="hero__rotator-word" id="hero-mot">généreux</span>
         </p>
 
         <p class="hero__text reveal" data-delay="200" id="hero-texte"></p>
 
         <div class="hero__cta reveal" data-delay="320">
-          <a class="btn btn--solid magnetic" href="#carte" data-cursor="Miam">Voir la carte</a>
-          <a class="btn btn--ghost magnetic" href="#commander" data-cursor="Go !">Commander</a>
+          <a class="btn btn--solid magnetic" href="#carte" data-cursor-key="hero.curseurCarte" data-i18n="hero.voirCarte">Voir la carte</a>
+          <a class="btn btn--ghost magnetic" href="#commander" data-cursor-key="hero.curseurCommande" data-i18n="nav.commander">Commander</a>
         </div>
       </div>
 
       <div class="hero__visual">
         <div class="hero__frame parallax" data-speed="0.06">
           <div class="hero__imgwrap">
-            <img src="assets/img/hero-burger.webp" alt="Double cheeseburger maison So Good Diner" width="900" height="1100" fetchpriority="high">
+            <img src="assets/img/hero-burger.webp" alt="Burger maison So Good Diner" width="900" height="1100" fetchpriority="high">
           </div>
           <div class="hero__badge" aria-hidden="true">
             <svg viewBox="0 0 200 200">
               <defs><path id="circlePath" d="M100,100 m-72,0 a72,72 0 1,1 144,0 a72,72 0 1,1 -144,0"/></defs>
-              <text><textPath href="#circlePath">· fait maison · viande fraîche · sauces maison · 7j/7 </textPath></text>
+              <text><textPath href="#circlePath" id="hero-badge-text">· fait maison · sauces maison · kumpirs · sur place &amp; à emporter </textPath></text>
             </svg>
             <span class="hero__badge-core">83</span>
           </div>
         </div>
         <div class="hero__scroll" aria-hidden="true">
-          <span></span> Défiler
+          <span></span> <em data-i18n="hero.defiler">Défiler</em>
         </div>
       </div>
     </div>
@@ -187,8 +203,11 @@
   <section class="adresse section" id="adresse">
     <div class="wrap">
       <div class="section-head">
-        <p class="eyebrow"><i></i> Ça bouge</p>
-        <h2 class="h-display reveal-mask"><span>Nouvelle adresse,<br>même gourmandise</span></h2>
+        <p class="eyebrow"><i></i><span data-i18n="adresse.eyebrow">Ça bouge</span></p>
+        <h2 class="h-display reveal-mask">
+          <span class="ml-src" data-i18n="adresse.titre1">Nouvelle adresse,</span>
+          <span class="ml-src" data-i18n="adresse.titre2">même gourmandise</span>
+        </h2>
       </div>
 
       <div class="adresse__grid">
@@ -196,25 +215,27 @@
           <p class="lead reveal" id="annonce-texte"></p>
           <ul class="adresse__list">
             <li class="reveal" data-delay="100">
-              <strong id="addr-ligne1">Adresse à confirmer</strong>
-              <span id="addr-ligne2">83600 Fréjus</span>
+              <strong id="addr-ligne1"></strong>
+              <span id="addr-ligne2"></span>
             </li>
             <li class="reveal" data-delay="200">
-              <strong><a class="link-tel" id="tel-link" href="#">04 00 00 00 00</a></strong>
-              <span>Commande par téléphone</span>
+              <strong><a class="link-tel" id="tel-link" href="#">—</a></strong>
+              <span data-i18n="adresse.telephone">Commande par téléphone</span>
             </li>
             <li class="reveal" data-delay="300">
-              <strong>Sur place · À emporter</strong>
-              <span>Terrasse en saison</span>
+              <strong data-i18n="adresse.surPlace">Sur place · À emporter</strong>
+              <span data-i18n="adresse.surPlaceDetail">Livraison via Uber Eats</span>
             </li>
           </ul>
-          <a class="btn btn--solid magnetic" id="itineraire" href="#" target="_blank" rel="noopener" data-cursor="On y va">Voir l'itinéraire</a>
+          <a class="btn btn--solid magnetic" id="itineraire" href="#" target="_blank" rel="noopener" data-cursor-key="adresse.curseur" data-i18n="adresse.itineraire">Voir l'itinéraire</a>
         </div>
 
         <div class="adresse__map reveal" data-delay="150">
           <div class="map-frame" id="map-frame"></div>
           <div class="adresse__map-tags">
-            <span>Centre-ville</span><span>Fréjus 83600</span><span>Var</span>
+            <span data-i18n="adresse.tag1">Centre-ville</span>
+            <span data-i18n="adresse.tag2">Fréjus 83600</span>
+            <span data-i18n="adresse.tag3">Var</span>
           </div>
         </div>
       </div>
@@ -226,10 +247,13 @@
     <div class="wrap">
       <div class="section-head section-head--split">
         <div>
-          <p class="eyebrow"><i></i> Les incontournables</p>
-          <h2 class="h-display reveal-mask"><span>Trois raisons<br>de craquer</span></h2>
+          <p class="eyebrow"><i></i><span data-i18n="signatures.eyebrow">Les incontournables</span></p>
+          <h2 class="h-display reveal-mask">
+            <span class="ml-src" data-i18n="signatures.titre1">Trois raisons</span>
+            <span class="ml-src" data-i18n="signatures.titre2">de craquer</span>
+          </h2>
         </div>
-        <p class="section-head__aside reveal">Trois classiques qui sortent de la plancha plus vite que les autres. Et pour cause.</p>
+        <p class="section-head__aside reveal" data-i18n="signatures.aside">Les trois plats qui sortent le plus de la plancha. Et pour cause.</p>
       </div>
 
       <div class="sig-grid" id="sig-grid"></div>
@@ -240,8 +264,11 @@
   <section class="experience section" id="experience">
     <div class="wrap">
       <div class="section-head">
-        <p class="eyebrow"><i></i> En coulisses</p>
-        <h2 class="h-display reveal-mask"><span>Quatre gestes,<br>zéro raccourci</span></h2>
+        <p class="eyebrow"><i></i><span data-i18n="experience.eyebrow">En coulisses</span></p>
+        <h2 class="h-display reveal-mask">
+          <span class="ml-src" data-i18n="experience.titre1">Quatre gestes,</span>
+          <span class="ml-src" data-i18n="experience.titre2">zéro raccourci</span>
+        </h2>
       </div>
 
       <div class="stack">
@@ -249,8 +276,8 @@
           <div class="stack__media"><img src="assets/img/kitchen-action.webp" alt="Steak smashé sur la plancha brûlante" loading="lazy"></div>
           <div class="stack__body">
             <span class="stack__num">01</span>
-            <h3>Le feu</h3>
-            <p>Plancha à 250 °C. Le steak est pressé une seule fois, assez longtemps pour créer cette croûte caramélisée qui fait tout le caractère du smash.</p>
+            <h3 data-i18n="experience.c1.titre">Le feu</h3>
+            <p data-i18n="experience.c1.texte"></p>
           </div>
         </article>
 
@@ -258,8 +285,8 @@
           <div class="stack__media"><img src="assets/img/ing-cheese.webp" alt="Cheddar fondu sur le steak" loading="lazy"></div>
           <div class="stack__body">
             <span class="stack__num">02</span>
-            <h3>La seconde</h3>
-            <p>Le cheddar arrive à la seconde précise où la viande quitte le feu. Une seconde de plus et il tranche, une de moins et il ne coule pas.</p>
+            <h3 data-i18n="experience.c2.titre">La seconde</h3>
+            <p data-i18n="experience.c2.texte"></p>
           </div>
         </article>
 
@@ -267,8 +294,8 @@
           <div class="stack__media"><img src="assets/img/burger-hands.webp" alt="Burger généreux tenu à deux mains" loading="lazy"></div>
           <div class="stack__body">
             <span class="stack__num">03</span>
-            <h3>La main</h3>
-            <p>Montage à la commande, jamais à l’avance. Sauce, salade, tomate, pickles : chaque étage a sa place, et il y en a beaucoup.</p>
+            <h3 data-i18n="experience.c3.titre">La main</h3>
+            <p data-i18n="experience.c3.texte"></p>
           </div>
         </article>
 
@@ -276,8 +303,8 @@
           <div class="stack__media"><img src="assets/img/interior-diner.webp" alt="Salle du restaurant So Good Diner" loading="lazy"></div>
           <div class="stack__body">
             <span class="stack__num">04</span>
-            <h3>La salle</h3>
-            <p>Banquettes, néons et musique un peu forte : un vrai diner américain posé dans une rue de Fréjus. On s’assoit, on reste.</p>
+            <h3 data-i18n="experience.c4.titre">La salle</h3>
+            <p data-i18n="experience.c4.texte"></p>
           </div>
         </article>
       </div>
@@ -289,10 +316,13 @@
     <div class="wrap">
       <div class="section-head section-head--split">
         <div>
-          <p class="eyebrow"><i></i> Décomposition</p>
-          <h2 class="h-display reveal-mask"><span>Chaque couche<br>compte</span></h2>
+          <p class="eyebrow"><i></i><span data-i18n="couches.eyebrow">Décomposition</span></p>
+          <h2 class="h-display reveal-mask">
+            <span class="ml-src" data-i18n="couches.titre1">Chaque couche</span>
+            <span class="ml-src" data-i18n="couches.titre2">compte</span>
+          </h2>
         </div>
-        <p class="section-head__aside reveal">Un burger, c’est quatre décisions. On les prend toutes au sérieux — du pain du boulanger jusqu’au dernier pickle.</p>
+        <p class="section-head__aside reveal" data-i18n="couches.aside"></p>
       </div>
     </div>
     <div class="couches__rail" id="couches-rail" data-draggable></div>
@@ -303,51 +333,40 @@
     <div class="wrap">
       <div class="section-head section-head--split">
         <div>
-          <p class="eyebrow"><i></i> À emporter</p>
-          <h2 class="h-display reveal-mask"><span>La qualité<br>vous suit partout</span></h2>
+          <p class="eyebrow"><i></i><span data-i18n="emporter.eyebrow">À emporter</span></p>
+          <h2 class="h-display reveal-mask">
+            <span class="ml-src" data-i18n="emporter.titre1">La qualité</span>
+            <span class="ml-src" data-i18n="emporter.titre2">vous suit partout</span>
+          </h2>
         </div>
         <div class="emporter__nav">
-          <button class="arrow" id="emp-prev" aria-label="Précédent"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
-          <button class="arrow" id="emp-next" aria-label="Suivant"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+          <button class="arrow" id="emp-prev" data-i18n-attr="aria-label:emporter.prev" aria-label="Précédent"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+          <button class="arrow" id="emp-next" data-i18n-attr="aria-label:emporter.next" aria-label="Suivant"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
         </div>
       </div>
     </div>
     <div class="emporter__rail" id="emp-rail" data-draggable></div>
-    <div class="wrap"><p class="emporter__hint">← Faites glisser →</p></div>
+    <div class="wrap"><p class="emporter__hint" data-i18n="emporter.hint">← Faites glisser →</p></div>
   </section>
 
   <!-- ================= LA CARTE ================= -->
   <section class="carte section section--paper" id="carte">
     <div class="wrap">
       <div class="section-head">
-        <p class="eyebrow"><i></i> La carte</p>
-        <h2 class="h-display reveal-mask"><span>Ce qu'on<br>vous sert</span></h2>
+        <p class="eyebrow"><i></i><span data-i18n="carte.eyebrow">La carte</span></p>
+        <h2 class="h-display reveal-mask">
+          <span class="ml-src" data-i18n="carte.titre1">Ce qu'on</span>
+          <span class="ml-src" data-i18n="carte.titre2">vous sert</span>
+        </h2>
       </div>
 
-      <div class="carte__tabs" id="carte-tabs" role="tablist" aria-label="Rubriques de la carte"></div>
+      <div class="carte__tabs" id="carte-tabs" role="tablist" data-i18n-attr="aria-label:carte.rubriques" aria-label="Rubriques de la carte"></div>
       <div class="carte__panels" id="carte-panels"></div>
 
-      <p class="carte__mention" id="carte-mention"></p>
-      <p class="carte__allergenes">Allergènes et origine des viandes disponibles sur place. Options végétariennes signalées par <span class="chip chip--veg">végé</span>.</p>
-    </div>
-  </section>
+      <div class="carte__aussi" id="carte-aussi"></div>
 
-  <!-- ================= AVIS ================= -->
-  <section class="avis section section--dark" id="avis">
-    <div class="wrap">
-      <div class="section-head section-head--split">
-        <div>
-          <p class="eyebrow"><i></i> Ils sont venus</p>
-          <h2 class="h-display reveal-mask"><span>Ils en<br>redemandent</span></h2>
-        </div>
-        <p class="section-head__aside reveal">
-          <span class="avis__score"><b id="avis-note">4,8</b>/5</span>
-          Note moyenne sur les avis clients.
-        </p>
-      </div>
-    </div>
-    <div class="ticker ticker--avis" aria-hidden="false">
-      <div class="ticker__track" id="avis-track" data-marquee data-speed="55"></div>
+      <p class="carte__mention" id="carte-mention"></p>
+      <p class="carte__allergenes"><span data-i18n="carte.allergenes"></span> <span class="chip chip--veg" data-i18n="carte.vege">végé</span>.</p>
     </div>
   </section>
 
@@ -356,12 +375,34 @@
     <div class="wrap">
       <div class="section-head section-head--split">
         <div>
-          <p class="eyebrow"><i></i> Galerie</p>
-          <h2 class="h-display reveal-mask"><span>Ça se mange<br>avec les yeux</span></h2>
+          <p class="eyebrow"><i></i><span data-i18n="galerie.eyebrow">Galerie</span></p>
+          <h2 class="h-display reveal-mask">
+            <span class="ml-src" data-i18n="galerie.titre1">Ça se mange</span>
+            <span class="ml-src" data-i18n="galerie.titre2">avec les yeux</span>
+          </h2>
         </div>
-        <p class="section-head__aside reveal">Cliquez sur une photo pour l'agrandir, puis naviguez au clavier avec les flèches.</p>
+        <p class="section-head__aside reveal" data-i18n="galerie.aside"></p>
       </div>
       <div class="galerie__grid" id="galerie-grid"></div>
+    </div>
+  </section>
+
+  <!-- ================= LES PRÉFÉRÉS ================= -->
+  <section class="favoris section section--dark" id="favoris">
+    <div class="wrap">
+      <div class="section-head section-head--split">
+        <div>
+          <p class="eyebrow"><i></i><span data-i18n="favoris.eyebrow">Le classement</span></p>
+          <h2 class="h-display reveal-mask">
+            <span class="ml-src" data-i18n="favoris.titre1">Ce que les gens</span>
+            <span class="ml-src" data-i18n="favoris.titre2">commandent</span>
+          </h2>
+        </div>
+        <p class="section-head__aside reveal" data-i18n="favoris.aside">Classement des plats les plus commandés.</p>
+      </div>
+    </div>
+    <div class="ticker ticker--avis">
+      <div class="ticker__track" id="favoris-track" data-marquee data-speed="55"></div>
     </div>
   </section>
 
@@ -369,39 +410,42 @@
   <section class="contact section" id="contact">
     <div class="wrap">
       <div class="section-head">
-        <p class="eyebrow"><i></i> Nous trouver</p>
-        <h2 class="h-display reveal-mask"><span>Passez quand<br>vous voulez</span></h2>
+        <p class="eyebrow"><i></i><span data-i18n="contact.eyebrow">Nous trouver</span></p>
+        <h2 class="h-display reveal-mask">
+          <span class="ml-src" data-i18n="contact.titre1">Passez quand</span>
+          <span class="ml-src" data-i18n="contact.titre2">vous voulez</span>
+        </h2>
       </div>
 
       <div class="contact__grid">
         <div class="contact__hours card">
-          <h3>Horaires</h3>
+          <h3 data-i18n="contact.horaires">Horaires</h3>
           <ul class="hours" id="hours-list"></ul>
           <p class="hours__note" id="hours-note"></p>
           <div class="contact__cta">
-            <a class="btn btn--solid btn--block magnetic" id="tel-btn" href="#">Appeler le restaurant</a>
+            <a class="btn btn--solid btn--block magnetic" id="tel-btn" href="#" data-i18n="contact.appeler">Appeler le restaurant</a>
           </div>
         </div>
 
         <div class="contact__form card">
-          <h3>Une question, un groupe, un évènement&nbsp;?</h3>
+          <h3 data-i18n="contact.formTitre">Une question, un groupe, un évènement&nbsp;?</h3>
           <form id="contact-form" novalidate>
             <div class="field">
-              <label for="f-nom">Nom</label>
-              <input id="f-nom" name="nom" type="text" required autocomplete="name" placeholder="Votre nom">
+              <label for="f-nom" data-i18n="contact.nom">Nom</label>
+              <input id="f-nom" name="nom" type="text" required autocomplete="name" data-i18n-attr="placeholder:contact.nomPh" placeholder="Votre nom">
               <span class="field__err" data-err-for="f-nom"></span>
             </div>
             <div class="field">
-              <label for="f-contact">Téléphone ou e-mail</label>
-              <input id="f-contact" name="contact" type="text" required placeholder="06 12 34 56 78">
+              <label for="f-contact" data-i18n="contact.coordonnee">Téléphone ou e-mail</label>
+              <input id="f-contact" name="contact" type="text" required data-i18n-attr="placeholder:contact.coordonneePh" placeholder="06 12 34 56 78">
               <span class="field__err" data-err-for="f-contact"></span>
             </div>
             <div class="field">
-              <label for="f-msg">Message</label>
-              <textarea id="f-msg" name="message" rows="4" required placeholder="Réservation de groupe, privatisation, question sur un plat…"></textarea>
+              <label for="f-msg" data-i18n="contact.message">Message</label>
+              <textarea id="f-msg" name="message" rows="4" required data-i18n-attr="placeholder:contact.messagePh" placeholder="Réservation de groupe, privatisation, question sur un plat…"></textarea>
               <span class="field__err" data-err-for="f-msg"></span>
             </div>
-            <button class="btn btn--solid btn--block magnetic" type="submit">Envoyer le message</button>
+            <button class="btn btn--solid btn--block magnetic" type="submit" data-i18n="contact.envoyer">Envoyer le message</button>
             <p class="form__ok" id="form-ok" role="status" aria-live="polite"></p>
           </form>
         </div>
@@ -416,33 +460,39 @@
   <div class="wrap">
     <div class="footer__top">
       <div class="footer__cmd">
-        <p class="eyebrow"><i></i> Envie maintenant ?</p>
-        <h2 class="h-display">Commandez,<br>on s'occupe du reste</h2>
+        <p class="eyebrow"><i></i><span data-i18n="footer.eyebrow">Envie maintenant ?</span></p>
+        <h2 class="h-display">
+          <span data-i18n="footer.titre1">Commandez,</span><br>
+          <span data-i18n="footer.titre2">on s'occupe du reste</span>
+        </h2>
         <div class="footer__btns" id="footer-btns">
-          <a class="btn btn--solid btn--lg magnetic" id="footer-tel" href="#">Appeler</a>
+          <a class="btn btn--solid btn--lg magnetic" id="footer-tel" href="#" data-i18n="footer.appeler">Appeler</a>
         </div>
-        <p class="footer__note">À emporter : pensez à commander à l’avance aux heures de pointe.</p>
+        <p class="footer__note" data-i18n="footer.note">À emporter : pensez à commander à l’avance aux heures de pointe.</p>
       </div>
 
       <div class="footer__cols">
         <div>
-          <h4>Adresse</h4>
+          <h4 data-i18n="footer.adresse">Adresse</h4>
           <p id="foot-addr"></p>
         </div>
         <div>
-          <h4>Contact</h4>
+          <h4 data-i18n="footer.contact">Contact</h4>
           <p><a id="foot-tel" href="#">—</a><br><a id="foot-mail" href="#">—</a></p>
         </div>
         <div>
-          <h4>Suivez-nous</h4>
+          <h4 data-i18n="footer.suivre">Suivez-nous</h4>
           <p>
             <a href="https://www.instagram.com/sogooddiner83/" target="_blank" rel="noopener">Instagram</a><br>
             <a href="https://www.facebook.com/61587045554269/" target="_blank" rel="noopener">Facebook</a>
           </p>
         </div>
         <div>
-          <h4>Infos</h4>
-          <p><a href="mentions-legales.html">Mentions légales</a><br><a href="confidentialite.html">Confidentialité</a></p>
+          <h4 data-i18n="footer.infos">Infos</h4>
+          <p>
+            <a href="mentions-legales.html" data-i18n="footer.mentions">Mentions légales</a><br>
+            <a href="confidentialite.html" data-i18n="footer.confidentialite">Confidentialité</a>
+          </p>
         </div>
       </div>
     </div>
@@ -453,19 +503,20 @@
   </div>
 
   <div class="wrap footer__bottom">
-    <p>© <span id="year"></span> So Good Diner — Fréjus. Tous droits réservés.</p>
-    <p>Site réalisé sur mesure.</p>
+    <p>© <span id="year"></span> So Good Diner — Fréjus. <span data-i18n="footer.droits">Tous droits réservés.</span></p>
+    <p data-i18n="footer.realisation">Site réalisé sur mesure.</p>
   </div>
 </footer>
 
 <!-- ===== Visionneuse galerie ===== -->
-<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo agrandie" hidden>
-  <button class="lightbox__close" id="lb-close" aria-label="Fermer">×</button>
-  <button class="lightbox__nav lightbox__nav--prev" id="lb-prev" aria-label="Photo précédente"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" data-i18n-attr="aria-label:lb.photo" aria-label="Photo agrandie" hidden>
+  <button class="lightbox__close" id="lb-close" data-i18n-attr="aria-label:lb.fermer" aria-label="Fermer">×</button>
+  <button class="lightbox__nav lightbox__nav--prev" id="lb-prev" data-i18n-attr="aria-label:lb.prev" aria-label="Photo précédente"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
   <figure class="lightbox__fig"><img id="lb-img" src="" alt=""><figcaption id="lb-cap"></figcaption></figure>
-  <button class="lightbox__nav lightbox__nav--next" id="lb-next" aria-label="Photo suivante"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+  <button class="lightbox__nav lightbox__nav--next" id="lb-next" data-i18n-attr="aria-label:lb.next" aria-label="Photo suivante"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
 </div>
 
+<script src="assets/js/i18n.js"></script>
 <script src="assets/js/content.js"></script>
 <script src="assets/js/main.js"></script>
 </body>

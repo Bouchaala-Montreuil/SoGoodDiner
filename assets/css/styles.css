@@ -365,6 +365,7 @@ ul,ol{list-style:none;padding:0}
   position:absolute;right:0;bottom:-6px;display:flex;align-items:center;gap:.6rem;
   font-size:.65rem;letter-spacing:.24em;text-transform:uppercase;color:rgba(245,238,226,.45);
 }
+.hero__scroll em{font-style:normal}
 .hero__scroll span{display:block;width:1px;height:34px;background:linear-gradient(var(--cheddar),transparent);animation:scrollHint 2s ease-in-out infinite}
 @keyframes scrollHint{50%{transform:scaleY(.4);opacity:.4}}
 
@@ -518,7 +519,6 @@ ul,ol{list-style:none;padding:0}
 .carte__allergenes{margin-top:.4rem;font-size:.78rem;color:rgba(18,16,14,.5)}
 
 /* -------------------------------------------------------------------- AVIS */
-.avis__score{font-family:var(--display);font-size:1.8rem;color:var(--cheddar);margin-right:.4rem}
 .ticker--avis .ticker__track{gap:0;padding-block:6px}
 .review{
   flex:none;width:min(84vw,380px);margin-right:20px;
@@ -637,6 +637,54 @@ ul,ol{list-style:none;padding:0}
 .gal:hover .gal__zoom{opacity:1;transform:translate(-50%,-50%) scale(1)}
 .gal--wide{grid-column:span 2}
 .gal--tall{grid-row:span 2}
+
+/* ------------------------------------------------------ SÉLECTEUR DE LANGUE */
+.lang{
+  display:inline-flex;align-items:center;gap:2px;padding:3px;
+  border:1px solid var(--line-l);border-radius:99px;background:rgba(245,238,226,.04);
+}
+.lang button{
+  padding:.3rem .6rem;border-radius:99px;font-size:.68rem;font-weight:800;
+  letter-spacing:.1em;color:rgba(245,238,226,.5);
+  transition:background .3s var(--ease),color .3s;
+}
+.lang button:hover{color:var(--paper)}
+.lang button[aria-pressed="true"]{background:var(--cheddar);color:var(--ink)}
+.lang--big{align-self:flex-start}
+.lang--big button{padding:.6rem 1.1rem;font-size:.85rem;letter-spacing:.04em}
+.section--paper .lang{border-color:var(--line-d);background:rgba(18,16,14,.04)}
+.section--paper .lang button{color:rgba(18,16,14,.5)}
+.section--paper .lang button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+
+/* ------------------------------------------------------------------ FAVORIS */
+.favoris .section-head__aside{display:block}
+.review__rang{
+  align-self:flex-start;font-size:.62rem;font-weight:800;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ink);background:var(--cheddar);
+  padding:.28rem .6rem;border-radius:99px;
+}
+.review__top{display:flex;align-items:baseline;justify-content:space-between;gap:1rem}
+.review__top h3{font-family:var(--display);text-transform:uppercase;font-weight:400;font-size:1.35rem;line-height:1}
+.review__prix{font-family:var(--display);font-size:1.15rem;color:var(--cheddar);white-space:nowrap}
+.review .review__txt{margin-top:-.2rem}
+
+/* ------------------------------------------- RUBRIQUES COMPLÉMENTAIRES CARTE */
+.carte__aussi{
+  margin-top:clamp(34px,5vw,56px);padding-top:clamp(22px,3vw,32px);
+  border-top:1px solid var(--line-d);
+}
+.carte__aussi-titre{
+  font-family:var(--display);text-transform:uppercase;font-size:1.3rem;
+  margin-bottom:1rem;font-weight:400;
+}
+.carte__aussi-list{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:.9rem}
+.carte__aussi-list li{
+  border:1px solid var(--line-d);border-radius:99px;padding:.45rem 1rem;
+  font-size:.83rem;font-weight:600;color:rgba(18,16,14,.72);
+  transition:border-color .3s,color .3s,transform .3s var(--ease);
+}
+.carte__aussi-list li:hover{border-color:var(--red);color:var(--ink);transform:translateY(-2px)}
+.carte__aussi-note{font-size:.78rem;color:rgba(18,16,14,.5)}
 
 /* ------------------------------------------------------------- RESPONSIVE */
 @media (max-width:1080px){
