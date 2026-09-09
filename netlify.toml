@@ -1,0 +1,22 @@
+[build]
+  publish = "."
+
+# Headers : cache long sur les assets, sécurité de base sur les pages
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+# Page 404 personnalisée
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404
