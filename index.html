@@ -32,7 +32,8 @@
   "name": "So Good Diner",
   "servesCuisine": ["Burgers", "American", "Sandwiches"],
   "image": "https://sogooddiner.fr/assets/img/hero-burger.webp",
-  "priceRange": "€€",
+  "priceRange": "€10–20",
+  "telephone": "+33952172426",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "65 rue du Général de Gaulle",
@@ -41,12 +42,13 @@
     "addressCountry": "FR"
   },
   "geo": { "@type": "GeoCoordinates", "latitude": 43.43244, "longitude": 6.73416 },
-  "openingHoursSpecification": [{
-    "@type": "OpeningHoursSpecification",
-    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
-    "opens": "18:00",
-    "closes": "01:00"
-  }],
+  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "149" },
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Wednesday","Thursday"], "opens": "11:00", "closes": "15:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Wednesday","Thursday"], "opens": "18:00", "closes": "01:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "11:00", "closes": "02:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "18:00", "closes": "02:00" }
+  ],
   "sameAs": [
     "https://www.instagram.com/sogooddiner83/",
     "https://www.facebook.com/61587045554269/"
@@ -225,6 +227,10 @@
             <li class="reveal" data-delay="300">
               <strong data-i18n="adresse.surPlace">Sur place · À emporter</strong>
               <span data-i18n="adresse.surPlaceDetail">Livraison via Uber Eats</span>
+            </li>
+            <li class="reveal" data-delay="400">
+              <strong data-i18n="adresse.options">Options véganes · Menu enfants</strong>
+              <span data-i18n="adresse.optionsDetail">Signalés sur la fiche Google</span>
             </li>
           </ul>
           <a class="btn btn--solid magnetic" id="itineraire" href="#" target="_blank" rel="noopener" data-cursor-key="adresse.curseur" data-i18n="adresse.itineraire">Voir l'itinéraire</a>

@@ -11,9 +11,13 @@ Les données déjà en place sont dans [`assets/js/content.js`](assets/js/conten
 
 | Élément | Valeur | Source |
 | --- | --- | --- |
-| Adresse | 65 rue du Général de Gaulle, 83600 Fréjus | Fiche Uber Eats |
+| Adresse | 65 rue du Général de Gaulle, 83600 Fréjus | Fiches Google + Uber Eats |
 | Coordonnées GPS | 43.43244, 6.73416 | Géocodage OpenStreetMap (rue — à affiner au n° 65) |
-| Horaires | Service du soir **18 h – 1 h** | Fiche Uber Eats |
+| Téléphone | **09 52 17 24 26** | Fiche Google |
+| Note | **4,9/5** sur **149 avis** | Fiche Google |
+| Tranche de prix | €10–20 | Fiche Google |
+| Options | végétalien, menu enfants | Fiche Google |
+| Horaires | lun/mer/jeu 11 h–15 h & 18 h–1 h · ven 11 h–2 h · sam 18 h–2 h · fermé mar & dim | Fiche Google |
 | Carte Burgers | 12 burgers, de 7,50 € à 21,90 € | Fiche Uber Eats |
 | Carte Kumpirs | 8 kumpirs, de 13,00 € à 18,70 € | Fiche Uber Eats |
 | Classement des ventes | Kumpir Kebab (nº1), So Good Bacon Burger (nº2), Kumpir Cannibal (nº3), + 3 « Populaire » | Fiche Uber Eats |
@@ -27,13 +31,11 @@ Les données déjà en place sont dans [`assets/js/content.js`](assets/js/conten
 
 ## ⚠️ À récupérer — bloquant pour la mise en ligne
 
-- [ ] **Téléphone** de l'établissement (`coordonnees.telephone` + `telephoneLien`).
 - [ ] **E-mail** de contact public (`coordonnees.email`).
-- [ ] **Jours d'ouverture** exacts — le site suppose 7j/7 pour le service du soir.
 - [ ] **Prix des rubriques manquantes** : Wraps, Sandwichs, Box, Sides, Menu Enfants,
       Menu Étudiant, Boissons, Desserts. Elles sont listées sur le site mais non détaillées.
 - [ ] **Photographies de l'établissement** (plats, kumpirs, salle, devanture, équipe).
-      Les 17 images actuelles sont des visuels d'illustration générés.
+      Les 16 images actuelles sont des visuels d'illustration générés.
 
 ## ⚠️ À faire valider
 
@@ -42,7 +44,7 @@ Les données déjà en place sont dans [`assets/js/content.js`](assets/js/conten
       Rien n'affirme d'origine des produits ni de fournisseur précis.
 - [ ] **Position exacte du n° 65** sur la carte (le marqueur est au centre de la rue).
 - [ ] Le restaurant accepte-t-il la **réservation** ? (le formulaire le sous-entend)
-- [ ] Options à signaler : **halal**, sans gluten, vente d'alcool.
+- [ ] Autres régimes à signaler : **halal**, sans gluten, vente d'alcool.
 
 ## Juridique (`mentions-legales.html`)
 
@@ -67,11 +69,11 @@ Les données déjà en place sont dans [`assets/js/content.js`](assets/js/conten
 
 ## Notes
 
-- **Avis clients** : aucun avis vérifié n'était disponible. Plutôt que d'inventer des
-  témoignages, la section affiche le **classement réel des plats les plus commandés**.
+- **Note Google** : la fiche affiche **4,9/5 sur 149 avis**. Elle est reprise sur le site
+  (bloc chiffres + `JSON-LD aggregateRating`).
+- **Avis clients** : aucun texte d'avis vérifié n'était disponible. Plutôt que d'inventer des
+  témoignages, la section affiche le **classement réel des plats les plus commandés** (Uber Eats).
   Si le client souhaite un vrai bloc d'avis, il faudra les vrais textes avec l'accord
   de leurs auteurs.
-- **Note Uber Eats** : la fiche affiche 3,9/5 sur 10 avis. Cette note n'est volontairement
-  **pas** reprise sur le site.
 - Instagram et Facebook renvoient une erreur HTTP 403 à toute récupération automatisée :
   rien n'a pu en être extrait.

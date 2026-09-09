@@ -54,8 +54,8 @@ window.SO_GOOD = {
       en: ['generous', 'homemade', 'smashed', 'loaded'],
     },
     texte: {
-      fr: "Des burgers à deux, trois steaks, des kumpirs qui débordent d'aligot et des sauces maison. Le tout en plein centre-ville de Fréjus, de 18 h à 1 h du matin.",
-      en: 'Two- and three-patty burgers, kumpirs overflowing with aligot, and homemade sauces. All in the heart of Fréjus, from 6 pm to 1 am.',
+      fr: "Des burgers à deux, trois steaks, des kumpirs qui débordent d'aligot et des sauces maison. Au centre-ville de Fréjus, midi et soir, jusqu'à 2 h du matin le week-end.",
+      en: 'Two- and three-patty burgers, kumpirs overflowing with aligot, and homemade sauces. In the centre of Fréjus, lunch and dinner, until 2 am at the weekend.',
     },
   },
 
@@ -75,8 +75,8 @@ window.SO_GOOD = {
     complement: { fr: 'Centre-ville', en: 'City centre' },
     codePostal: '83600',
     ville: { fr: 'Fréjus', en: 'Fréjus' },
-    telephone: '04 00 00 00 00',              // ⚠️  À CONFIRMER
-    telephoneLien: '+33400000000',            // ⚠️  À CONFIRMER
+    telephone: '09 52 17 24 26',              // ✅ fiche Google
+    telephoneLien: '+33952172426',            // ✅ fiche Google
     email: 'contact@sogooddiner.fr',          // ⚠️  À CONFIRMER
     instagram: 'https://www.instagram.com/sogooddiner83/',
     facebook: 'https://www.facebook.com/61587045554269/',
@@ -102,7 +102,7 @@ window.SO_GOOD = {
       'Kumpirs maison',
       'Sauces maison',
       'Sur place & à emporter',
-      'Service 18 h – 1 h',
+      'Midi & soir, jusqu’à 2 h le week-end',
     ],
     en: [
       'New address — Fréjus city centre',
@@ -110,7 +110,7 @@ window.SO_GOOD = {
       'Homemade kumpirs',
       'Homemade sauces',
       'Dine in & takeaway',
-      'Open 6 pm – 1 am',
+      'Lunch & dinner, until 2 am at weekends',
     ],
   },
 
@@ -120,7 +120,7 @@ window.SO_GOOD = {
   chiffres: [
     { valeur: '12', libelle: { fr: 'Burgers à la carte', en: 'Burgers on the menu' } },
     { valeur: '8', libelle: { fr: 'Kumpirs garnis', en: 'Loaded kumpirs' } },
-    { valeur: '18h–1h', libelle: { fr: 'Service du soir', en: 'Evening service' } },
+    { valeur: '4,9/5', libelle: { fr: '149 avis Google', en: '149 Google reviews' } },
     { valeur: '280 g', libelle: { fr: 'Le plus gros steak', en: 'Biggest single patty' } },
   ],
 
@@ -156,8 +156,8 @@ window.SO_GOOD = {
       icone: 'veggie',
       titre: { fr: 'Sans viande aussi', en: 'Meat-free too' },
       texte: {
-        fr: 'Veggie Burger au steak de soja et halloumi, kumpir végétarien : personne ne reste sur la touche.',
-        en: 'Soy-patty Veggie Burger with halloumi, vegetarian kumpir: nobody gets left out.',
+        fr: 'Options véganes, menu enfants, Veggie Burger au steak de soja et halloumi : personne ne reste sur la touche.',
+        en: 'Vegan options, kids menu, soy-patty Veggie Burger with halloumi: nobody gets left out.',
       },
     },
   ],
@@ -407,11 +407,14 @@ window.SO_GOOD = {
    *      jours : 1 = lundi … 7 = dimanche
    * ---------------------------------------------------------------------- */
   horaires: [
-    { jours: [1, 2, 3, 4, 5, 6, 7], creneaux: ['18:00-01:00'] },
+    { jours: [1, 3, 4], creneaux: ['11:00-15:00', '18:00-01:00'] }, // lun, mer, jeu
+    { jours: [5], creneaux: ['11:00-02:00'] },                      // vendredi (continu)
+    { jours: [6], creneaux: ['18:00-02:00'] },                      // samedi
+    // mardi (2) et dimanche (7) : fermé
   ],
   horairesNote: {
-    fr: 'Service du soir uniquement. Jours d’ouverture à confirmer avec l’établissement.',
-    en: 'Evening service only. Opening days to be confirmed with the restaurant.',
+    fr: 'Fermé le mardi et le dimanche.',
+    en: 'Closed on Tuesdays and Sundays.',
   },
 
   /* ------------------------------------------------------------------------
