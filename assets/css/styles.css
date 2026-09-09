@@ -11,9 +11,10 @@
   --ink-3:#251F1B;
   --paper:#F5EEE2;
   --paper-2:#FFFAF0;
-  --red:#E23A2E;
-  --red-d:#B82C22;
-  --cheddar:#F5B324;
+  --red:#F2670B;   /* orange marque (visuels Instagram) */
+  --red-d:#C9520A;
+  --cheddar:#FFA53D; /* orange clair (accents) */
+  --uber:#06C167;
   --teal:#1BA396;
   --line-l:rgba(245,238,226,.14);
   --line-d:rgba(18,16,14,.14);
@@ -399,7 +400,7 @@ ul,ol{list-style:none;padding:0}
 .link-tel{background-image:linear-gradient(var(--cheddar),var(--cheddar));background-size:0 1.5px;background-repeat:no-repeat;background-position:0 100%;transition:background-size .4s var(--ease)}
 .link-tel:hover{background-size:100% 1.5px}
 
-.map-frame{border-radius:var(--r);overflow:hidden;border:1px solid var(--line-l);aspect-ratio:5/4;background:var(--ink-3);filter:grayscale(.35) contrast(1.05)}
+.map-frame{border-radius:var(--r);overflow:hidden;border:1px solid var(--line-l);aspect-ratio:5/4;background:var(--ink-3);filter:saturate(1.15) contrast(1.02)}
 .map-frame iframe{width:100%;height:100%;border:0;display:block}
 .adresse__map-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
 .adresse__map-tags span{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(245,238,226,.55);border:1px solid var(--line-l);border-radius:99px;padding:.3rem .8rem}
@@ -791,6 +792,51 @@ ul,ol{list-style:none;padding:0}
 .statement__word b{color:var(--red);-webkit-text-stroke:0}
 .statement__sub{position:relative;z-index:1;margin-top:1rem;color:rgba(245,238,226,.6);letter-spacing:.2em;text-transform:uppercase;font-size:.74rem}
 
+/* ============================================================================
+   V4 — MARQUE ORANGE : bouton Uber Eats, badge logo sur la carte, vrais avis.
+   ========================================================================== */
+
+/* --- Bouton Uber Eats --- */
+.btn--uber{--bg:#000;--bd:#000;--fg:#fff;gap:.55rem}
+.btn--uber .uber-logo{width:15px;height:15px;fill:var(--uber);flex:none;transition:fill .3s}
+.btn--uber::before{background:var(--uber)}
+.btn--uber:hover{color:#000}
+.btn--uber:hover .uber-logo{fill:#000}
+.section--paper .btn--uber{--fg:#fff;--bd:#000}
+
+/* --- Badge logo « sogood » sur la carte --- */
+.adresse__map{position:relative}
+.map-badge{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-58%);z-index:2;
+  display:grid;place-items:center;text-align:center;pointer-events:none;
+  background:var(--red);color:#fff;padding:.8rem 1.5rem .7rem;border-radius:16px;
+  box-shadow:0 20px 44px -14px rgba(0,0,0,.65);
+  animation:badgePulse 3.2s ease-in-out infinite;
+}
+.map-badge::after{
+  content:"";position:absolute;top:100%;left:50%;transform:translateX(-50%);
+  border:11px solid transparent;border-top-color:var(--red);
+}
+.map-badge__sogood{font-family:var(--script);font-size:1.7rem;line-height:1.05}
+.map-badge__diner{font-size:.58rem;letter-spacing:.44em;text-transform:uppercase;opacity:.9}
+@keyframes badgePulse{50%{transform:translate(-50%,-64%)}}
+
+/* --- Section avis --- */
+.avis-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(16px,2.5vw,28px)}
+.avis{
+  position:relative;border:1px solid var(--line-l);border-radius:var(--r);
+  background:var(--ink-3);padding:1.8rem;display:flex;flex-direction:column;gap:1rem;
+}
+.avis::before{
+  content:"\201C";position:absolute;top:6px;right:22px;font-family:var(--script);
+  font-size:3.6rem;line-height:1;color:rgba(255,165,61,.28);
+}
+.avis__top{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.avis__stars{color:var(--red);letter-spacing:.22em;font-size:1.05rem}
+.avis__note{font-family:var(--display);color:var(--paper);font-size:1.15rem}
+.avis__txt{margin:0;border:0;font-size:.95rem;color:rgba(245,238,226,.82);flex:1}
+.avis__nom{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cheddar)}
+
 /* ------------------------------------------------------------- RESPONSIVE */
 @media (max-width:1080px){
   .nav__links{display:none}
@@ -816,6 +862,7 @@ ul,ol{list-style:none;padding:0}
   .stack__card{grid-template-columns:1fr;min-height:auto;top:calc(9vh + var(--i) * 12px)}
   .stack__media{aspect-ratio:16/10}
   .sig-grid{grid-template-columns:1fr}
+  .avis-grid{grid-template-columns:1fr}
   .hero__badge{width:104px;height:104px;left:-14px;bottom:-16px}
   .hero__badge svg text{font-size:16px}
   .footer__cols{grid-template-columns:1fr}

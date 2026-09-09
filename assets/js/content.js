@@ -241,6 +241,16 @@ window.SO_GOOD = {
   ],
   horairesNote: { fr: 'Fermé le mardi et le dimanche.', en: 'Closed on Tuesdays and Sundays.' },
 
+  /* Avis clients réels (Instagram @sogooddiner83) */
+  avis: [
+    { nom: 'Vanessa P.', note: 5,
+      texte: { fr: "Accueil au top ! Je ne laisse jamais d'avis, mais là, c'était tellement bon que ça mérite que les gens connaissent ce lieu ! Produits frais, sauces maison super bonnes. Dans notre commande, nous avions le menu enfant, un wrap chèvre et un américain. Les 3 menus au top ! Que ce soit au niveau du goût, du visuel ou de la quantité, il n'y a rien à dire ! On mange bien et on est bien calé comme il faut. Je recommande +++++++",
+               en: "Top-notch welcome! I never leave reviews, but this was so good that people deserve to know this place! Fresh products, amazing homemade sauces. Our order had the kids' menu, a goat-cheese wrap and an américain. All three outstanding! Taste, presentation, portion size — nothing to fault! You eat well and leave properly full. I recommend +++++++" } },
+    { nom: 'Marc M.', note: 5,
+      texte: { fr: "Une très belle découverte ! J'ai passé un excellent moment dans ce petit restaurant : le repas était délicieux, fait avec soin et surtout maison. Les patrons sont au top, avec un accueil chaleureux et familial. Petit clin d'œil sympa : premier client de l'année 2026. Je recommande à 100 %. On y va pour manger, on y reste pour l'accueil !",
+               en: "A lovely discovery! I had a great time in this little restaurant: the meal was delicious, made with care and above all homemade. The owners are wonderful, with a warm, family welcome. Fun little detail: first customer of 2026. I recommend 100%. You come for the food, you stay for the welcome!" } }
+  ],
+
   commande: {
     telephoneActif: true,
     plateformes: [ { nom: 'Uber Eats', url: 'https://www.ubereats.com/fr/store/so-good/AEpML5H6UrK-38zkW4WElw', actif: true } ],

@@ -101,6 +101,11 @@ window.SO_GOOD_I18N = {
     'anatomie.l4': 'Légumes frais',
     'anatomie.l5': 'Sauce maison',
     'statement.sub': 'Burgers & kumpirs · centre-ville de Fréjus',
+    'nav.commanderUber': 'Commander sur Uber Eats',
+    'avis.eyebrow': 'Vos avis',
+    'avis.titre1': 'Ils sont venus,',
+    'avis.titre2': 'ils ont aimé',
+    'avis.aside': 'De vrais avis de clients, partagés sur notre Instagram.',
 
     /* Carte */
     'carte.eyebrow': 'La carte',
@@ -272,6 +277,11 @@ window.SO_GOOD_I18N = {
     'anatomie.l4': 'Fresh veggies',
     'anatomie.l5': 'House sauce',
     'statement.sub': 'Burgers & kumpirs · Fréjus town centre',
+    'nav.commanderUber': 'Order on Uber Eats',
+    'avis.eyebrow': 'Your reviews',
+    'avis.titre1': 'They came,',
+    'avis.titre2': 'they loved it',
+    'avis.aside': 'Real customer reviews, shared on our Instagram.',
 
     /* Menu */
     'carte.eyebrow': 'The menu',

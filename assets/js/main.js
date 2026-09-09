@@ -222,8 +222,7 @@
         return '<article class="sig reveal tilt">' +
           '<div class="sig__media"><img src="' + s.image + '" alt="' + esc(s.nom) + '" loading="lazy">' +
           (s.badge ? '<span class="sig__badge">' + esc(t(s.badge)) + '</span>' : '') + '</div>' +
-          '<div class="sig__body"><div class="sig__top"><h3 class="sig__nom">' + esc(s.nom) + '</h3>' +
-          '<span class="sig__prix">' + esc(prix(s.prix)) + '</span></div>' +
+          '<div class="sig__body"><div class="sig__top"><h3 class="sig__nom">' + esc(s.nom) + '</h3></div>' +
           '<p class="sig__desc">' + esc(t(s.description)) + '</p></div></article>';
       }).join('');
     }
@@ -249,9 +248,11 @@
 
     renderCarte();
     renderFavoris();
+    renderAvis();
     renderGalerie();
     renderHoraires();
     renderCommande();
+    commandeDirecte();
   }
 
   /* ---------------------------------------------------------------- LA CARTE */
@@ -325,6 +326,30 @@
              '<p class="review__txt">' + esc(t(f.texte)) + '</p></article>';
     }).join('');
     track.innerHTML = html + html;
+  }
+
+  /* ------------------------------------------------------------------ AVIS */
+  function renderAvis() {
+    var grid = $('#avis-grid');
+    if (!grid || !D.avis) return;
+    grid.innerHTML = D.avis.map(function (a, i) {
+      var etoiles = '';
+      for (var k = 0; k < 5; k++) etoiles += k < a.note ? '★' : '☆';
+      return '<figure class="avis reveal tilt" data-delay="' + (i * 120) + '">' +
+        '<div class="avis__top"><span class="avis__stars" aria-label="' + a.note + '/5">' + etoiles + '</span>' +
+        '<span class="avis__note">5,0</span></div>' +
+        '<blockquote class="avis__txt">' + esc(t(a.texte)) + '</blockquote>' +
+        '<figcaption class="avis__nom">— ' + esc(a.nom) + '</figcaption></figure>';
+    }).join('');
+  }
+
+  /* ------------------------------------------- COMMANDE DIRECTE UBER EATS */
+  function commandeDirecte() {
+    var url = ((D.commande || {}).plateformes || []).filter(function (p) { return p.actif; })[0];
+    if (!url) return;
+    $$('[data-commande]').forEach(function (a) {
+      a.href = url.url; a.target = '_blank'; a.rel = 'noopener';
+    });
   }
 
   /* ---------------------------------------------------------------- GALERIE */
