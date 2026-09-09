@@ -76,7 +76,7 @@ window.SO_GOOD = {
 
   chiffres: [
     { valeur: '10', libelle: { fr: 'Kumpirs garnis', en: 'Loaded kumpirs' } },
-    { valeur: '8', libelle: { fr: 'Burgers & wraps', en: 'Burgers & wraps' } },
+    { valeur: '12', libelle: { fr: 'Burgers maison', en: 'House burgers' } },
     { valeur: '4,9/5', libelle: { fr: '149 avis Google', en: '149 Google reviews' } },
     { valeur: '5', libelle: { fr: 'Boxs à partager', en: 'Boxes to share' } },
   ],
@@ -147,25 +147,39 @@ window.SO_GOOD = {
       ],
     },
     {
-      id: 'burgers', titre: { fr: 'Burgers & Wraps', en: 'Burgers & Wraps' },
+      id: 'burgers', titre: { fr: 'Burgers', en: 'Burgers' },
       sousTitre: { fr: 'Menu : frites + boisson.', en: 'Menu: fries + drink.' },
       items: [
-        { nom: 'Double Cheese', prix: 8.5, prixMenu: 11.5, desc: { fr: '2 steaks, 2 cheddar, cornichons, ketchup, mayonnaise.', en: '2 patties, 2 cheddar, pickles, ketchup, mayonnaise.' } },
-        { nom: 'So Good 150', prix: 13.9, prixMenu: 16.9, desc: { fr: 'Steak 150 g, salade, tomate, oignons rouges, 2 cheddar.', en: '150 g patty, lettuce, tomato, red onions, 2 cheddar.' } },
-        { nom: 'Le Veggie', prix: 14.4, prixMenu: 17.4, desc: { fr: 'Rösti, cheddar, salade, tomate, oignons caramélisés.', en: 'Rösti, cheddar, lettuce, tomato, caramelised onions.' }, tags: ['vegetarien'] },
-        { nom: 'Wrap Américain', prix: 10.9, prixMenu: 13.9, desc: { fr: 'Poulet pané, cheddar, salade, tomate, oignons, frites, sauce BBQ.', en: 'Breaded chicken, cheddar, lettuce, tomato, onions, fries, BBQ sauce.' } },
-        { nom: 'Le Frenchie', prix: 13, prixMenu: 16, desc: { fr: 'Steak 100 g, œuf, salade, tomate, raclette, bacon, poivrons.', en: '100 g patty, egg, lettuce, tomato, raclette, bacon, peppers.' }, tags: ['best-seller'] },
-        { nom: 'Le Master Bœuf ou Poulet', prix: 16, prixMenu: 19, desc: { fr: '2 steaks 100 g ou 2 filets de poulet panés, double cheddar, raclette, rösti, oignons caramélisés.', en: 'Two 100 g patties or two breaded chicken fillets, double cheddar, raclette, rösti, caramelised onions.' } },
-        { nom: 'So Good Chicken ou Fish', prix: 10, prixMenu: 13, desc: { fr: 'Colin pané ou filet de poulet pané, cheddar, salade, sauce fish.', en: 'Breaded pollock or chicken fillet, cheddar, lettuce, fish sauce.' } },
-        { nom: 'Wrap Chèvre', prix: 9.9, prixMenu: 12.9, desc: { fr: 'Poulet pané, cheddar, chèvre, salade, tomate, oignons, sauce moutarde miel.', en: 'Breaded chicken, cheddar, goat cheese, lettuce, tomato, onions, honey-mustard sauce.' } },
+        { nom: 'Cheeseburger', prix: 4.5, desc: { fr: 'Steak, cheddar, cornichons, ketchup, mayonnaise.', en: 'Patty, cheddar, pickles, ketchup, mayonnaise.' } },
+        { nom: 'Double Cheese', prix: 7.5, prixMenu: 10.5, desc: { fr: '2 steaks, 2 cheddar, cornichons, ketchup, mayonnaise.', en: '2 patties, 2 cheddar, pickles, ketchup, mayonnaise.' }, tags: ['best-seller'] },
+        { nom: 'Le Frenchie', prix: 12.9, prixMenu: 15.9, desc: { fr: 'Steak 100 g, œuf, salade, tomate, oignons rouges, raclette, bacon, sauce poivre ou moutarde-miel.', en: '100 g patty, egg, lettuce, tomato, red onions, raclette, bacon, pepper or honey-mustard sauce.' }, tags: ['best-seller'] },
+        { nom: 'Le Raphaëlois', prix: 12, prixMenu: 15, desc: { fr: 'Steak 100 g, salade, cornichons, tomate, chèvre, miel et oignons confits.', en: '100 g patty, lettuce, pickles, tomato, goat cheese, honey and confit onions.' } },
+        { nom: 'Le Master', prix: 16.8, prixMenu: 19.8, desc: { fr: '2 steaks 100 g, double cheddar, double raclette, rösti, oignons caramélisés.', en: 'Two 100 g patties, double cheddar, double raclette, rösti, caramelised onions.' } },
+        { nom: 'Le Hulk Burger', prix: 14.8, prixMenu: 17.8, desc: { fr: 'Steak 280 g, salade, tomate, oignons caramélisés, sauce maison.', en: '280 g patty, lettuce, tomato, caramelised onions, house sauce.' } },
+        { nom: 'So Good Bacon', prix: 13.5, prixMenu: 16.5, desc: { fr: '3 steaks 80 g, bacon grillé, 3 tranches de cheddar, oignons caramélisés, sauce au choix.', en: 'Three 80 g patties, grilled bacon, 3 cheddar slices, caramelised onions, sauce of your choice.' } },
+        { nom: 'So Good 150', prix: 12.5, prixMenu: 15.5, desc: { fr: 'Steak 150 g (façon bouchère), salade, tomate, oignons rouges, 2 cheddar, cornichons.', en: '150 g patty (butcher style), lettuce, tomato, red onions, 2 cheddar, pickles.' } },
+        { nom: 'So Good Chicken Beef', prix: 12.5, prixMenu: 15.5, desc: { fr: 'Poulet pané, steak 80 g, salade, tomate, oignons rouges, cheddar, emmental, sauce au choix.', en: 'Breaded chicken, 80 g patty, lettuce, tomato, red onions, cheddar, emmental, sauce of your choice.' } },
+        { nom: 'So Good Chicken', prix: 9.5, prixMenu: 12.5, desc: { fr: 'Poulet pané, salade, tomate, oignons rouges, sauce au choix.', en: 'Breaded chicken, lettuce, tomato, red onions, sauce of your choice.' } },
+        { nom: 'So Good Fish', prix: 7.5, prixMenu: 10.5, desc: { fr: 'Colin pané, cheddar, salade, sauce fish.', en: 'Breaded pollock, cheddar, lettuce, fish sauce.' } },
+        { nom: 'Le Veggie', prix: 7.5, prixMenu: 10.5, desc: { fr: 'Rösti, cheddar, salade, tomate, oignons caramélisés, sauce au choix.', en: 'Rösti, cheddar, lettuce, tomato, caramelised onions, sauce of your choice.' }, tags: ['vegetarien'] },
       ],
     },
     {
-      id: 'sandwichs', titre: { fr: 'Sandwichs & Paninis', en: 'Sandwiches & Paninis' },
+      id: 'hotdogs', titre: { fr: 'Hot Dogs', en: 'Hot Dogs' },
+      sousTitre: { fr: 'Nouveau ! En box de 3 : 19,90 € (prix de lancement).', en: 'New! Box of 3: €19.90 (launch price).' },
+      items: [
+        { nom: 'Hot Dog Classique', desc: { fr: 'Saucisse, ketchup, moutarde américaine.', en: 'Sausage, ketchup, American mustard.' }, tags: ['nouveau'] },
+        { nom: 'Hot Dog Montagnard', desc: { fr: 'Saucisse, raclette fondue, oignons croustillants.', en: 'Sausage, melted raclette, crispy onions.' }, tags: ['nouveau'] },
+        { nom: 'Hot Dog à la Truffe', desc: { fr: 'Saucisse, mayo truffe, copeaux de parmesan.', en: 'Sausage, truffle mayo, parmesan shavings.' }, tags: ['nouveau'] },
+      ],
+    },
+    {
+      id: 'sandwichs', titre: { fr: 'Sandwichs & Wraps', en: 'Sandwiches & Wraps' },
       sousTitre: { fr: '', en: '' },
       items: [
         { nom: 'Philly Cheese Steak au Poulet', prix: 14.5, prixMenu: 17.5, desc: { fr: 'Pain sous-marin, bœuf/poulet, poivrons, oignons, fromage, salade, mayonnaise, champignons frais.', en: 'Sub roll, beef/chicken, peppers, onions, cheese, lettuce, mayonnaise, fresh mushrooms.' } },
-        { nom: 'Hot Dog Frit', prix: 9, prixMenu: 12, desc: { fr: 'Pain, saucisse frite, cheddar, oignon crispy, ketchup / moutarde américain.', en: 'Bun, fried sausage, cheddar, crispy onion, ketchup / American mustard.' } },
+        { nom: 'Wrap Américain', prix: 10.9, prixMenu: 13.9, desc: { fr: 'Poulet pané, cheddar, salade, tomate, oignons, frites, sauce BBQ.', en: 'Breaded chicken, cheddar, lettuce, tomato, onions, fries, BBQ sauce.' } },
+        { nom: 'Wrap Chèvre', prix: 9.9, prixMenu: 12.9, desc: { fr: 'Poulet pané, cheddar, chèvre, salade, tomate, oignons, sauce moutarde miel.', en: 'Breaded chicken, cheddar, goat cheese, lettuce, tomato, onions, honey-mustard sauce.' } },
         { nom: 'Panini 4 Fromages', prix: 8, desc: { fr: 'Pain panini, mélange de quatre fromages fondants.', en: 'Panini bread, four melting cheeses.' }, tags: ['vegetarien'] },
         { nom: 'Américain Simple', prix: 10, prixMenu: 12, desc: { fr: 'Baguette, 2 steaks de 80 g, frites, cheddar, salade, tomate, oignons, sauce au choix.', en: 'Baguette, two 80 g patties, fries, cheddar, lettuce, tomato, onions, sauce of your choice.' } },
         { nom: 'Panini Jambon', prix: 6.5, desc: { fr: 'Pain panini, jambon, fromage.', en: 'Panini bread, ham, cheese.' } },
@@ -227,19 +241,19 @@ window.SO_GOOD = {
   /* Les préférés — classement Uber Eats, prix repris de la carte officielle */
   favoris: [
     { rang: 'Nº 1', nom: 'Kumpir Kebab', prix: 10.5, texte: { fr: 'La pomme de terre au four garnie de kebab, aligot et oignons caramélisés.', en: 'The baked potato loaded with kebab, aligot and caramelised onions.' } },
-    { rang: 'Nº 2', nom: 'Le Frenchie', prix: 13, texte: { fr: 'Steak 100 g, œuf, raclette et bacon. Très français, très copieux.', en: '100 g patty, egg, raclette and bacon. Very French, very filling.' } },
+    { rang: 'Nº 2', nom: 'Le Frenchie', prix: 12.9, texte: { fr: 'Steak 100 g, œuf, raclette et bacon. Très français, très copieux.', en: '100 g patty, egg, raclette and bacon. Very French, very filling.' } },
     { rang: 'Nº 3', nom: 'Kumpir Cannibal', prix: 14, texte: { fr: 'Steak haché, saucisse, oignons. Le kumpir qui ne plaisante pas.', en: 'Minced steak, sausage, onions. The kumpir that means business.' } },
-    { rang: { fr: 'Populaire', en: 'Popular' }, nom: 'Double Cheese', prix: 8.5, texte: { fr: 'Le classique à 8,50 € : 2 steaks, 2 cheddar, cornichons.', en: 'The €8.50 classic: 2 patties, 2 cheddar, pickles.' } },
+    { rang: { fr: 'Populaire', en: 'Popular' }, nom: 'Double Cheese', prix: 7.5, texte: { fr: 'Le classique à 7,50 € : 2 steaks, 2 cheddar, cornichons.', en: 'The €7.50 classic: 2 patties, 2 cheddar, pickles.' } },
     { rang: { fr: 'Populaire', en: 'Popular' }, nom: 'Philly Cheese Steak', prix: 13.5, texte: { fr: 'Provolone, poivrons et champignons fondants.', en: 'Melting provolone, peppers and mushrooms.' } },
     { rang: { fr: 'À partager', en: 'To share' }, nom: 'Box Famille', prix: 39.9, texte: { fr: 'Six burgers, frites, oignons crispy et bouteille 1,5 L.', en: 'Six burgers, fries, crispy onions and a 1.5 L bottle.' } },
   ],
 
   horaires: [
-    { jours: [1, 3, 4], creneaux: ['11:00-15:00', '18:00-01:00'] },
-    { jours: [5], creneaux: ['11:00-02:00'] },
-    { jours: [6], creneaux: ['18:00-02:00'] },
+    { jours: [1, 2, 3, 4], creneaux: ['11:00-23:00'] },
+    { jours: [5, 6], creneaux: ['11:00-02:00'] },
+    { jours: [7], creneaux: ['18:00-23:00'] },
   ],
-  horairesNote: { fr: 'Fermé le mardi et le dimanche.', en: 'Closed on Tuesdays and Sundays.' },
+  horairesNote: { fr: '*À partir de 1 h : uniquement à emporter ou en livraison.', en: '*From 1 am: takeaway or delivery only.' },
 
   /* Avis clients réels (Instagram @sogooddiner83) */
   avis: [

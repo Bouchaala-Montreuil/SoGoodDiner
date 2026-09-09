@@ -279,7 +279,7 @@
       var items = (c.items || []).map(function (it) {
         var chips = (it.tags || []).map(function (x) { return CHIPS[x] || ''; }).join(' ');
         return '<div class="item"><h3 class="item__nom">' + esc(it.nom) + ' ' + chips + '</h3>' +
-               '<span class="item__prix">' + esc(prixAffiche(it)) + '</span>' +
+               (typeof it.prix === 'number' ? '<span class="item__prix">' + esc(prixAffiche(it)) + '</span>' : '') +
                (it.desc ? '<p class="item__desc">' + esc(t(it.desc)) + '</p>' : '') + '</div>';
       }).join('');
       return '<div class="carte__panel' + (on ? ' is-active' : '') + '" role="tabpanel" id="panel-' + c.id +

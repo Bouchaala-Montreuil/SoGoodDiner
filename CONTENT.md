@@ -19,11 +19,12 @@ Les données déjà en place sont dans [`assets/js/content.js`](assets/js/conten
 | Note | **4,9/5** sur **149 avis** | Fiche Google |
 | Tranche de prix | €10–20 | Fiche Google |
 | Options | végétalien, menu enfants | Fiche Google |
-| Horaires | lun/mer/jeu 11 h–15 h & 18 h–1 h · ven 11 h–2 h · sam 18 h–2 h · fermé mar & dim | Fiche Google |
-| **Carte complète** | **8 rubriques · 44 articles · prix « seul » + « menu »** | **Carte officielle (photos client)** |
+| Horaires | lun–jeu 11 h–23 h · ven–sam 11 h–2 h* · dim 18 h–23 h (*après 1 h : à emporter/livraison) | Visuel Instagram « Nos horaires » |
+| **Carte complète** | **9 rubriques · 52 articles · prix « seul » + « menu »** | **Carte officielle + visuels Instagram** |
 | — Kumpir | 10 kumpirs (4 toppings offerts), 10,50 € à 13,50 € seul | Carte officielle |
-| — Burgers & Wraps | 8 burgers/wraps (menu = frites + boisson), 8,50 € à 13 € seul | Carte officielle |
-| — Sandwichs & Paninis | 6 sandwichs/paninis | Carte officielle |
+| — Burgers | 12 burgers (menu = frites + boisson), 4,50 € à 16,80 € seul | Visuels Instagram « La carte des burgers » |
+| — Hot Dogs | 3 hot dogs (Classique, Montagnard, Truffe) — prix unitaires à confirmer | Visuels Instagram |
+| — Sandwichs & Wraps | 7 sandwichs/wraps | Carte officielle |
 | — Boxs | 5 boxs (dont Box Famille 39,90 €) | Carte officielle |
 | — Snacking | 7 articles (supplément cheddar/bacon 1,50 €) | Carte officielle |
 | — Menus | 2 (menu enfant 8 €, menu étudiant) | Carte officielle |
@@ -46,6 +47,8 @@ Les données déjà en place sont dans [`assets/js/content.js`](assets/js/conten
 - [ ] **E-mail** de contact public (`coordonnees.email`).
 - [ ] **Photographies de l'établissement** (plats, kumpirs, salle, devanture, équipe).
       Les images actuelles sont des visuels d'illustration générés.
+- [ ] **Prix unitaires des hot dogs** (Classique, Montagnard, Truffe) — les visuels ne
+      donnent que le prix de la box de 3 (19,90 €). Ils sont listés sans prix en attendant.
 
 ## ⚠️ À faire valider
 
