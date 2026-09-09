@@ -91,6 +91,16 @@ window.SO_GOOD_I18N = {
     'emporter.prev': 'Précédent',
     'emporter.next': 'Suivant',
     'emporter.hint': '← Faites glisser →',
+    'anatomie.eyebrow': 'Monté minute',
+    'anatomie.titre1': 'Monté',
+    'anatomie.titre2': 'minute',
+    'anatomie.lead': "Chaque burger est assemblé à la commande, couche par couche. Du pain brioché toasté à la dernière touche de sauce, rien n'attend.",
+    'anatomie.l1': 'Pain brioché toasté',
+    'anatomie.l2': 'Steak smashé sur plancha',
+    'anatomie.l3': 'Cheddar fondu',
+    'anatomie.l4': 'Légumes frais',
+    'anatomie.l5': 'Sauce maison',
+    'statement.sub': 'Burgers & kumpirs · centre-ville de Fréjus',
 
     /* Carte */
     'carte.eyebrow': 'La carte',
@@ -252,6 +262,16 @@ window.SO_GOOD_I18N = {
     'emporter.prev': 'Previous',
     'emporter.next': 'Next',
     'emporter.hint': '← Drag to scroll →',
+    'anatomie.eyebrow': 'Made to order',
+    'anatomie.titre1': 'Made',
+    'anatomie.titre2': 'to order',
+    'anatomie.lead': 'Every burger is assembled to order, layer by layer. From the toasted brioche bun to the last drizzle of sauce, nothing waits around.',
+    'anatomie.l1': 'Toasted brioche bun',
+    'anatomie.l2': 'Flat-top smashed patty',
+    'anatomie.l3': 'Melted cheddar',
+    'anatomie.l4': 'Fresh veggies',
+    'anatomie.l5': 'House sauce',
+    'statement.sub': 'Burgers & kumpirs · Fréjus town centre',
 
     /* Menu */
     'carte.eyebrow': 'The menu',

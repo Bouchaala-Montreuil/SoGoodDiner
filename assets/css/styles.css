@@ -668,6 +668,129 @@ ul,ol{list-style:none;padding:0}
 .review__prix{font-family:var(--display);font-size:1.15rem;color:var(--cheddar);white-space:nowrap}
 .review .review__txt{margin-top:-.2rem}
 
+/* ============================================================================
+   V3 — CINÉMATIQUE : révélations d'images, burger qui se monte, héros vivant,
+   projecteur de curseur, brillance des boutons. Tout respecte reduced-motion.
+   ========================================================================== */
+
+/* --- Révélation « essuie-glace » des images au scroll --- */
+.sig__media img,.couche__media img,.emp img,.gal img,.stack__media img{
+  clip-path:inset(0 0 100% 0);
+  transition:clip-path 1.05s var(--ease),transform .9s var(--ease),filter .6s;
+}
+.sig__media.img-in img,.couche__media.img-in img,.emp.img-in img,.gal.img-in img,.stack__media.img-in img{
+  clip-path:inset(0 0 -2% 0);
+}
+.hero__imgwrap img{clip-path:inset(0 0 100% 0)}
+.is-ready .hero__imgwrap img{clip-path:inset(0 0 -2% 0);transition:clip-path 1.3s .35s var(--ease)}
+
+/* --- Projecteur qui suit le curseur (halo doux) --- */
+.spotlight{
+  position:fixed;top:0;left:0;width:520px;height:520px;margin:-260px 0 0 -260px;
+  z-index:1;pointer-events:none;opacity:0;transition:opacity .5s;
+  background:radial-gradient(circle,rgba(245,179,36,.13),transparent 62%);
+  mix-blend-mode:screen;will-change:transform;
+}
+.spotlight.is-on{opacity:1}
+@media (hover:none),(pointer:coarse){.spotlight{display:none}}
+
+/* --- Brillance balayée sur les boutons --- */
+.btn::after{
+  content:"";position:absolute;top:0;left:-120%;width:60%;height:100%;z-index:1;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.5),transparent);
+  transform:skewX(-18deg);transition:left .7s var(--ease);pointer-events:none;
+}
+.btn:hover::after{left:150%}
+
+/* --- Héros vivant : médaillons flottants + vapeur --- */
+.hero__float{position:absolute;inset:0;pointer-events:none;z-index:3}
+.float{
+  position:absolute;width:clamp(56px,8vw,92px);aspect-ratio:1;border-radius:50%;
+  overflow:hidden;border:2px solid var(--ink);
+  box-shadow:0 16px 34px -12px rgba(0,0,0,.85);
+  transform:translate3d(calc(var(--mx,0)*var(--dx,1)),calc(var(--my,0)*var(--dy,1)),0);
+  transition:transform .6s var(--ease);
+}
+.float img{width:100%;height:100%;object-fit:cover}
+.float--1{top:6%;left:-6%;--dx:14px;--dy:10px;animation:bob 7s ease-in-out infinite}
+.float--2{bottom:12%;right:-4%;--dx:-16px;--dy:-12px;animation:bob 8.5s ease-in-out .6s infinite}
+.float--3{top:46%;right:8%;--dx:10px;--dy:-16px;animation:bob 9.5s ease-in-out 1.2s infinite}
+@keyframes bob{50%{translate:0 -14px}}
+.steam{position:absolute;top:-6px;left:50%;transform:translateX(-50%);display:flex;gap:14px;z-index:4;pointer-events:none}
+.steam i{
+  display:block;width:7px;height:46px;border-radius:99px;opacity:0;
+  background:linear-gradient(to top,rgba(245,238,226,.5),transparent);
+  filter:blur(3px);animation:steam 4.2s ease-in-out infinite;
+}
+.steam i:nth-child(2){animation-delay:.7s;height:58px}
+.steam i:nth-child(3){animation-delay:1.4s}
+@keyframes steam{
+  0%{opacity:0;transform:translateY(10px) scaleY(.6)}
+  25%{opacity:.55}
+  60%{opacity:.25;transform:translateY(-26px) scaleY(1.1) translateX(6px)}
+  100%{opacity:0;transform:translateY(-46px) scaleY(1.2) translateX(-4px)}
+}
+
+/* --- SECTION ANATOMIE : le burger se monte couche par couche --- */
+.anatomie{background:var(--ink);overflow:hidden}
+.anatomie__grid{
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  gap:clamp(28px,5vw,72px);align-items:center;
+}
+.anatomie__copy .h-display{margin-bottom:1rem}
+.anatomie__copy .lead{margin-bottom:1.6rem}
+.anatomie__legend{display:grid;gap:.1rem;margin-top:1.4rem;border-top:1px solid var(--line-l)}
+.anatomie__legend li{
+  display:flex;align-items:center;gap:.8rem;padding:.7rem 0;
+  border-bottom:1px solid var(--line-l);font-size:.9rem;color:rgba(245,238,226,.7);
+  opacity:0;transform:translateX(-14px);
+}
+.anatomie.is-in .anatomie__legend li{animation:legendIn .6s var(--ease) forwards;animation-delay:calc(.5s + var(--i)*.12s)}
+@keyframes legendIn{to{opacity:1;transform:none}}
+.anatomie__legend .dot{width:12px;height:12px;border-radius:50%;flex:none;box-shadow:0 0 0 3px rgba(245,238,226,.06)}
+
+.burger-stage{position:relative;display:grid;place-items:center;min-height:clamp(300px,46vh,440px)}
+.burger{
+  --w:clamp(170px,30vw,250px);
+  position:relative;width:var(--w);display:flex;flex-direction:column-reverse;align-items:center;
+  filter:drop-shadow(0 34px 36px rgba(0,0,0,.55));
+}
+.burger__layer{position:relative;width:100%;opacity:0;transform:translateY(-58px) scale(.86)}
+.burger.is-in .burger__layer{animation:layerDrop .85s var(--ease) forwards;animation-delay:calc(var(--i)*.13s)}
+@keyframes layerDrop{
+  0%{opacity:0;transform:translateY(-64px) scale(.84) rotate(-4deg)}
+  62%{opacity:1;transform:translateY(7px) scale(1.04) rotate(1.5deg)}
+  100%{opacity:1;transform:translateY(0) scale(1) rotate(0)}
+}
+.burger__bun--bottom{height:calc(var(--w)*.2);border-radius:14px 14px 999px 999px;background:linear-gradient(#D98A2B,#B96A20);box-shadow:inset 0 5px 0 rgba(255,255,255,.14)}
+.burger__patty{height:calc(var(--w)*.16);width:96%;border-radius:999px;background:linear-gradient(#6B3A1E,#4A2612);box-shadow:inset 0 -4px 8px rgba(0,0,0,.4),0 3px 0 rgba(0,0,0,.25)}
+.burger__cheese{height:calc(var(--w)*.075);width:104%;background:linear-gradient(#F8C63C,#EBA91F);clip-path:polygon(0 0,100% 0,100% 55%,92% 100%,84% 55%,72% 100%,62% 55%,50% 100%,38% 55%,28% 100%,16% 55%,8% 100%,0 55%)}
+.burger__fresh{height:calc(var(--w)*.1);width:108%;border-radius:999px;background:linear-gradient(#5FBF5F,#3E9A46);box-shadow:inset 0 -3px 0 rgba(0,0,0,.12)}
+.burger__fresh::before,.burger__fresh::after{content:"";position:absolute;top:-6px;width:26%;height:14px;border-radius:999px;background:#4CAF50}
+.burger__fresh::before{left:6%}
+.burger__fresh::after{right:6%}
+.burger__tomate{height:calc(var(--w)*.07);width:92%;border-radius:999px;background:linear-gradient(#E2452E,#B82C22)}
+.burger__bun--top{height:calc(var(--w)*.32);border-radius:999px 999px 16px 16px;background:linear-gradient(#EFA93F,#CE7E28);box-shadow:inset 0 -7px 0 rgba(0,0,0,.12)}
+.burger__bun--top::before{
+  content:"";position:absolute;inset:14% 16% 40%;
+  background-image:radial-gradient(#FFF6DF 22%,transparent 24%);
+  background-size:20px 16px;opacity:.85;
+}
+.burger:hover .burger__layer{animation-play-state:paused}
+
+/* --- Bande « statement » plein cadre qui respire au scroll --- */
+.statement{position:relative;overflow:hidden;background:var(--ink);padding-block:clamp(60px,12vh,140px);text-align:center}
+.statement__bg{position:absolute;inset:-12% 0;z-index:0;opacity:.16}
+.statement__bg img{width:100%;height:100%;object-fit:cover;filter:grayscale(.4) contrast(1.1)}
+.statement__word{
+  position:relative;z-index:1;font-family:var(--display);text-transform:uppercase;
+  font-size:clamp(3rem,17vw,13rem);line-height:.82;letter-spacing:-.02em;
+  color:transparent;-webkit-text-stroke:2px rgba(245,238,226,.5);
+  transform:scale(var(--s,1));opacity:var(--o,1);will-change:transform,opacity;
+}
+.statement__word b{color:var(--red);-webkit-text-stroke:0}
+.statement__sub{position:relative;z-index:1;margin-top:1rem;color:rgba(245,238,226,.6);letter-spacing:.2em;text-transform:uppercase;font-size:.74rem}
+
 /* ------------------------------------------------------------- RESPONSIVE */
 @media (max-width:1080px){
   .nav__links{display:none}
@@ -679,6 +802,9 @@ ul,ol{list-style:none;padding:0}
   .hero__scroll{display:none}
   .sig-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .adresse__grid,.contact__grid,.footer__top{grid-template-columns:1fr}
+  .anatomie__grid{grid-template-columns:1fr}
+  .burger-stage{order:-1;min-height:auto;padding-block:10px}
+  .float--3{display:none}
   .section-head--split{grid-template-columns:1fr;align-items:start}
   .carte__items{grid-template-columns:1fr}
   .stats__list{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:26px}
@@ -715,6 +841,13 @@ ul,ol{list-style:none;padding:0}
   .hero__title .line__inner,.hero__title .ltr{transform:none;opacity:1}
   .stack__card{position:relative;top:auto}
   .cursor{display:none}
+  /* V3 : tout figer dans l'état final, supprimer le mouvement décoratif */
+  .spotlight,.steam,.hero__float{display:none}
+  .sig__media img,.couche__media img,.emp img,.gal img,.stack__media img,.hero__imgwrap img{clip-path:none}
+  .burger__layer,.anatomie__legend li{opacity:1;transform:none;animation:none}
+  .statement__word{transform:none;opacity:1}
+  .float{animation:none;transform:none}
+  .btn::after{display:none}
 }
 
 @media print{

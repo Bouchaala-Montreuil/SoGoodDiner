@@ -857,9 +857,101 @@
     injecter();
     observeReveals();
     observeCompteurs();
+    imageReveals();
     rafraichirMarquees();
     majStatut();
     if (menuMobile._setOpen) menuMobile._setOpen(false);
+  }
+
+  /* =========================================================================
+   * I2. V3 — RÉVÉLATIONS D'IMAGES, BURGER, HÉROS VIVANT, PROJECTEUR, STATEMENT
+   * =======================================================================*/
+  var ioImg = null, dejaImg = null;
+  function imageReveals() {
+    var sel = '.sig__media,.couche__media,.emp,.gal,.stack__media';
+    if (reduce) { $$(sel).forEach(function (el) { el.classList.add('img-in'); }); return; }
+    if (!ioImg) {
+      dejaImg = typeof WeakSet === 'function' ? new WeakSet() : null;
+      ioImg = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          e.target.classList.add('img-in');
+          ioImg.unobserve(e.target);
+        });
+      }, { threshold: 0.2, rootMargin: '0px 0px -6% 0px' });
+    }
+    $$(sel).forEach(function (el) {
+      if (el.classList.contains('img-in')) return;
+      if (dejaImg) { if (dejaImg.has(el)) return; dejaImg.add(el); }
+      ioImg.observe(el);
+    });
+  }
+
+  var ioAnim = null, dejaAnim = null;
+  function observeAnimate() {
+    if (!ioAnim) {
+      dejaAnim = typeof WeakSet === 'function' ? new WeakSet() : null;
+      ioAnim = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          e.target.classList.add('is-in');
+          ioAnim.unobserve(e.target);
+        });
+      }, { threshold: 0.3 });
+    }
+    $$('[data-animate]').forEach(function (el) {
+      if (el.classList.contains('is-in')) return;
+      if (dejaAnim) { if (dejaAnim.has(el)) return; dejaAnim.add(el); }
+      ioAnim.observe(el);
+    });
+  }
+
+  function herosVivant() {
+    var floatBox = $('.hero__float');
+    if (!floatBox || isTouch || reduce) return;
+    window.addEventListener('mousemove', function (e) {
+      var nx = (e.clientX / window.innerWidth - 0.5) * 2;
+      var ny = (e.clientY / window.innerHeight - 0.5) * 2;
+      floatBox.style.setProperty('--mx', nx.toFixed(3));
+      floatBox.style.setProperty('--my', ny.toFixed(3));
+    }, { passive: true });
+  }
+
+  function projecteur() {
+    if (isTouch || reduce) return;
+    var sp = document.createElement('div');
+    sp.className = 'spotlight';
+    sp.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(sp);
+    var x = window.innerWidth / 2, y = window.innerHeight / 2, cx = x, cy = y, actif = false;
+    document.addEventListener('mousemove', function (e) {
+      x = e.clientX; y = e.clientY;
+      if (!actif) { actif = true; sp.classList.add('is-on'); }
+    }, { passive: true });
+    document.addEventListener('mouseleave', function () { sp.classList.remove('is-on'); actif = false; });
+    (function loop() {
+      cx += (x - cx) * 0.12; cy += (y - cy) * 0.12;
+      sp.style.transform = 'translate(' + cx.toFixed(1) + 'px,' + cy.toFixed(1) + 'px)';
+      requestAnimationFrame(loop);
+    })();
+  }
+
+  function statementFx() {
+    var st = $('.statement'), word = $('.statement__word');
+    if (!st || !word || reduce) return;
+    var ticking = false;
+    function update() {
+      var r = st.getBoundingClientRect();
+      var vh = window.innerHeight || 1;
+      var a = Math.min(Math.abs((r.top + r.height / 2 - vh / 2) / vh), 1);
+      word.style.setProperty('--s', (1 + a * 0.28).toFixed(3));
+      word.style.setProperty('--o', Math.max(0, 1 - a * 1.15).toFixed(3));
+      ticking = false;
+    }
+    function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    update();
   }
 
   /* =========================================================================
@@ -875,6 +967,11 @@
     marquees();
     observeReveals();
     observeCompteurs();
+    imageReveals();
+    observeAnimate();
+    herosVivant();
+    projecteur();
+    statementFx();
     scrollFx();
     navActive();
     menuMobile();
