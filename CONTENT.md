@@ -1,7 +1,9 @@
 # Contenu à récupérer auprès du client
 
-Bonne nouvelle : l'essentiel a été retrouvé sur la **fiche Uber Eats officielle** de
-l'établissement. Ce qui reste est listé ci-dessous.
+Bonne nouvelle : l'essentiel est en place. La **carte officielle de l'établissement**
+(photos fournies par le client) et la **fiche Google** ont permis de renseigner l'adresse,
+le téléphone, les horaires, la note et **l'intégralité du menu avec ses prix**. Ce qui
+reste est listé ci-dessous.
 
 Les données déjà en place sont dans [`assets/js/content.js`](assets/js/content.js).
 
@@ -18,30 +20,39 @@ Les données déjà en place sont dans [`assets/js/content.js`](assets/js/conten
 | Tranche de prix | €10–20 | Fiche Google |
 | Options | végétalien, menu enfants | Fiche Google |
 | Horaires | lun/mer/jeu 11 h–15 h & 18 h–1 h · ven 11 h–2 h · sam 18 h–2 h · fermé mar & dim | Fiche Google |
-| Carte Burgers | 12 burgers, de 7,50 € à 21,90 € | Fiche Uber Eats |
-| Carte Kumpirs | 8 kumpirs, de 13,00 € à 18,70 € | Fiche Uber Eats |
-| Classement des ventes | Kumpir Kebab (nº1), So Good Bacon Burger (nº2), Kumpir Cannibal (nº3), + 3 « Populaire » | Fiche Uber Eats |
-| Rubriques existantes | Wraps, Sandwichs, Box, Sides, Menu Enfants, Menu Étudiant, Boissons, Desserts | Fiche Uber Eats |
+| **Carte complète** | **8 rubriques · 44 articles · prix « seul » + « menu »** | **Carte officielle (photos client)** |
+| — Kumpir | 10 kumpirs (4 toppings offerts), 10,50 € à 13,50 € seul | Carte officielle |
+| — Burgers & Wraps | 8 burgers/wraps (menu = frites + boisson), 8,50 € à 13 € seul | Carte officielle |
+| — Sandwichs & Paninis | 6 sandwichs/paninis | Carte officielle |
+| — Boxs | 5 boxs (dont Box Famille 39,90 €) | Carte officielle |
+| — Snacking | 7 articles (supplément cheddar/bacon 1,50 €) | Carte officielle |
+| — Menus | 2 (menu enfant 8 €, menu étudiant) | Carte officielle |
+| — Desserts | 3 desserts (tiramisu 4,50 €) | Carte officielle |
+| — Boissons | 3 (soda 2 €, eau 1,50 €, eau pétillante 2 €) | Carte officielle |
+| Plats mis en avant | Kumpir Kebab, Le Frenchie, Box Famille | Carte officielle |
+| Classement des ventes | Kumpir Kebab (nº1), So Good Bacon Burger (nº2), Kumpir Cannibal (nº3) | Uber Eats (popularité uniquement) |
 | Lien de commande | Uber Eats (bouton actif dans le footer) | Fourni par le client |
 | Instagram | @sogooddiner83 | Fourni |
 | Facebook | Page officielle | Fourni |
 | Ancienne adresse | 148 av. de Valescure, Saint-Raphaël (page fermée le 15/09/2025) | Uber Eats |
+
+> **Suppléments** : la carte indique « tout supplément 1,00 € » (note reprise sous la
+> carte du site, `carteMention`).
 
 ---
 
 ## ⚠️ À récupérer — bloquant pour la mise en ligne
 
 - [ ] **E-mail** de contact public (`coordonnees.email`).
-- [ ] **Prix des rubriques manquantes** : Wraps, Sandwichs, Box, Sides, Menu Enfants,
-      Menu Étudiant, Boissons, Desserts. Elles sont listées sur le site mais non détaillées.
 - [ ] **Photographies de l'établissement** (plats, kumpirs, salle, devanture, équipe).
-      Les 16 images actuelles sont des visuels d'illustration générés.
+      Les images actuelles sont des visuels d'illustration générés.
 
 ## ⚠️ À faire valider
 
-- [ ] **Textes éditoriaux** : les 4 blocs « En coulisses », les 4 cartes « savoir-faire »
-      et les 4 cartes « Chaque couche compte » sont des propositions d'agence.
-      Rien n'affirme d'origine des produits ni de fournisseur précis.
+- [ ] **Textes éditoriaux** : les blocs « En coulisses », les cartes « savoir-faire »
+      et « Chaque couche compte » sont des propositions d'agence. La carte officielle
+      mentionne « pain artisanal du boulanger » et « viande fraîche du boucher » —
+      à confirmer avant de les affirmer sur le site.
 - [ ] **Position exacte du n° 65** sur la carte (le marqueur est au centre de la rue).
 - [ ] Le restaurant accepte-t-il la **réservation** ? (le formulaire le sous-entend)
 - [ ] Autres régimes à signaler : **halal**, sans gluten, vente d'alcool.
@@ -69,11 +80,15 @@ Les données déjà en place sont dans [`assets/js/content.js`](assets/js/conten
 
 ## Notes
 
+- **Carte officielle** : le menu affiché est la **carte de l'établissement** (photos
+  fournies par le client), et non la fiche Uber Eats. Les prix Uber Eats différaient ;
+  ils ne sont plus utilisés. Uber Eats ne sert désormais qu'au **classement de
+  popularité** et au **lien de commande**. Le drapeau `brouillon` est passé à `false`.
 - **Note Google** : la fiche affiche **4,9/5 sur 149 avis**. Elle est reprise sur le site
   (bloc chiffres + `JSON-LD aggregateRating`).
-- **Avis clients** : aucun texte d'avis vérifié n'était disponible. Plutôt que d'inventer des
-  témoignages, la section affiche le **classement réel des plats les plus commandés** (Uber Eats).
-  Si le client souhaite un vrai bloc d'avis, il faudra les vrais textes avec l'accord
-  de leurs auteurs.
+- **Avis clients** : aucun texte d'avis vérifié n'était disponible. Plutôt que d'inventer
+  des témoignages, la section « favoris » affiche le **classement réel des plats les plus
+  commandés** (Uber Eats). Si le client souhaite un vrai bloc d'avis, il faudra les vrais
+  textes avec l'accord de leurs auteurs.
 - Instagram et Facebook renvoient une erreur HTTP 403 à toute récupération automatisée :
   rien n'a pu en être extrait.

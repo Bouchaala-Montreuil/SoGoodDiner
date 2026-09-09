@@ -102,8 +102,8 @@ window.SO_GOOD_I18N = {
     'carte.nouveau': 'nouveau',
     'carte.epice': 'épicé',
     'carte.rubriques': 'Rubriques de la carte',
-    'carte.aussiTitre': 'Et aussi, à retrouver sur place',
-    'carte.aussiNote': 'Prix et composition de ces rubriques disponibles sur place et sur Uber Eats.',
+    'carte.seul': 'Seul',
+    'carte.menu': 'Menu',
 
     /* Favoris */
     'favoris.eyebrow': 'Le classement',
@@ -263,8 +263,8 @@ window.SO_GOOD_I18N = {
     'carte.nouveau': 'new',
     'carte.epice': 'spicy',
     'carte.rubriques': 'Menu sections',
-    'carte.aussiTitre': 'Also available in store',
-    'carte.aussiNote': 'Prices and contents for these sections are available in store and on Uber Eats.',
+    'carte.seul': 'Solo',
+    'carte.menu': 'Menu',
 
     /* Favourites */
     'favoris.eyebrow': 'The ranking',

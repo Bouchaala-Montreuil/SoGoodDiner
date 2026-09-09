@@ -2,438 +2,250 @@
  * ============================================================================
  *  SO GOOD DINER — FICHIER DE CONTENU  (bilingue FR / EN)
  * ============================================================================
- *  Tout le contenu du site vit ici. Pour mettre à jour le site, il suffit
- *  d'éditer ce fichier : aucun code HTML à toucher.
+ *  Tout le contenu du site vit ici. Aucun code HTML à toucher.
  *
  *  CONVENTION
- *    Une chaîne traduisible s'écrit  { fr: '…', en: '…' }
- *    Une valeur identique dans les deux langues reste une chaîne simple.
- *    Les prix sont des NOMBRES : ils sont formatés automatiquement
- *    (« 13,90 € » en français, « €13.90 » en anglais) selon la langue active.
+ *    Chaîne traduisible : { fr: '…', en: '…' }
+ *    Prix = NOMBRES, formatés par Intl.NumberFormat selon la langue.
+ *    Un article peut avoir deux prix : prix (seul) et prixMenu (menu).
  *
  *  SOURCES
- *    ✅ VÉRIFIÉ  = repris de la fiche Uber Eats officielle de l'établissement
- *                  (65 rue du Général de Gaulle, 83600 Fréjus) et du post
- *                  Facebook annonçant le déménagement.
- *    ⚠️  À CONFIRMER = hypothèse à faire valider par le client.
+ *    ✅ Carte officielle de l'établissement (photos de la carte, sept. 2026) :
+ *       sections Kumpir, Burgers & Wraps, Sandwichs & Paninis, Boxs, Snacking,
+ *       Menus, Desserts, Boissons — prix « seul / menu ».
+ *    ✅ Fiche Google : adresse, téléphone, note 4,9/5 (149 avis), horaires.
+ *    ⚠️  À CONFIRMER : e-mail, photos réelles, mentions légales, domaine.
  * ============================================================================
  */
 window.SO_GOOD = {
-  /* ------------------------------------------------------------------------
-   * 0. MODE BROUILLON
-   * true  -> affiche un avertissement sur la carte
-   * false -> une fois le contenu validé par le client
-   * ---------------------------------------------------------------------- */
-  brouillon: true,
+  brouillon: false, // la carte ci-dessous est la carte officielle
 
   langues: ['fr', 'en'],
-  langueDefaut: 'fr', // 'auto' = suit la langue du navigateur
+  langueDefaut: 'fr',
 
-  /* ------------------------------------------------------------------------
-   * 1. SEO
-   * ---------------------------------------------------------------------- */
+  /* SEO */
   seo: {
-    titre: {
-      fr: 'So Good Diner — Burgers & Kumpirs à Fréjus',
-      en: 'So Good Diner — Burgers & Kumpirs in Fréjus',
-    },
+    titre: { fr: 'So Good Diner — Burgers & Kumpirs à Fréjus', en: 'So Good Diner — Burgers & Kumpirs in Fréjus' },
     description: {
-      fr: 'So Good Diner, 65 rue du Général de Gaulle à Fréjus : burgers généreux, kumpirs garnis, wraps et sandwichs. Sur place, à emporter et en livraison.',
-      en: 'So Good Diner, 65 rue du Général de Gaulle in Fréjus: generous burgers, loaded kumpirs, wraps and sandwiches. Dine in, takeaway and delivery.',
+      fr: 'So Good Diner, 65 rue du Général de Gaulle à Fréjus : kumpirs garnis, burgers, wraps, boxs et snacking. Carte officielle, sur place, à emporter et en livraison.',
+      en: 'So Good Diner, 65 rue du Général de Gaulle in Fréjus: loaded kumpirs, burgers, wraps, boxes and snacks. Official menu — dine in, takeaway and delivery.',
     },
   },
 
-  /* ------------------------------------------------------------------------
-   * 2. HERO
-   * ---------------------------------------------------------------------- */
   hero: {
     ligne1: 'So Good',
     ligne2: 'Diner',
-    motsRotatifs: {
-      fr: ['généreux', 'fait maison', 'smashé', 'garni'],
-      en: ['generous', 'homemade', 'smashed', 'loaded'],
-    },
+    motsRotatifs: { fr: ['généreux', 'fait maison', 'garni', 'partagé'], en: ['generous', 'homemade', 'loaded', 'shared'] },
     texte: {
-      fr: "Des burgers à deux, trois steaks, des kumpirs qui débordent d'aligot et des sauces maison. Au centre-ville de Fréjus, midi et soir, jusqu'à 2 h du matin le week-end.",
-      en: 'Two- and three-patty burgers, kumpirs overflowing with aligot, and homemade sauces. In the centre of Fréjus, lunch and dinner, until 2 am at the weekend.',
+      fr: "Double cheese, kumpirs qui débordent d'aligot, boxs à partager et sauces au choix. Au centre-ville de Fréjus, midi et soir, jusqu'à 2 h du matin le week-end.",
+      en: 'Double cheese, kumpirs overflowing with aligot, boxes to share and sauces of your choice. In the centre of Fréjus, lunch and dinner, until 2 am at the weekend.',
     },
   },
 
   etablissement: {
     nom: 'So Good Diner',
-    baseline: {
-      fr: 'Le goût américain, au cœur de Fréjus.',
-      en: 'American flavour, in the heart of Fréjus.',
-    },
+    baseline: { fr: 'Le goût américain, au cœur de Fréjus.', en: 'American flavour, in the heart of Fréjus.' },
   },
 
-  /* ------------------------------------------------------------------------
-   * 3. COORDONNÉES  ✅ adresse vérifiée — ⚠️  téléphone et e-mail à confirmer
-   * ---------------------------------------------------------------------- */
   coordonnees: {
-    adresse: '65 rue du Général de Gaulle',   // ✅ Uber Eats
+    adresse: '65 rue du Général de Gaulle',
     complement: { fr: 'Centre-ville', en: 'City centre' },
     codePostal: '83600',
     ville: { fr: 'Fréjus', en: 'Fréjus' },
-    telephone: '09 52 17 24 26',              // ✅ fiche Google
-    telephoneLien: '+33952172426',            // ✅ fiche Google
-    email: 'contact@sogooddiner.fr',          // ⚠️  À CONFIRMER
+    telephone: '09 52 17 24 26',
+    telephoneLien: '+33952172426',
+    email: 'contact@sogooddiner.fr', // ⚠️ À CONFIRMER
     instagram: 'https://www.instagram.com/sogooddiner83/',
     facebook: 'https://www.facebook.com/61587045554269/',
-    geo: { lat: 43.43244, lon: 6.73416 },     // ✅ géocodé (rue) — affiner au n° 65
+    geo: { lat: 43.43244, lon: 6.73416 },
   },
 
-  /* ------------------------------------------------------------------------
-   * 4. ANNONCE « NOUVELLE ADRESSE »  ✅ issue du post Facebook
-   * ---------------------------------------------------------------------- */
   annonce: {
     actif: true,
     texte: {
-      fr: "So Good Diner a déménagé et vous accueille désormais au 65 rue du Général de Gaulle, en plein centre-ville de Fréjus. Toujours la même équipe, toujours les mêmes portions.",
-      en: 'So Good Diner has moved and now welcomes you at 65 rue du Général de Gaulle, right in the centre of Fréjus. Same team, same generous portions.',
+      fr: "So Good Diner vous accueille au 65 rue du Général de Gaulle, en plein centre-ville de Fréjus. Pain artisanal du boulanger, viande fraîche du boucher.",
+      en: 'So Good Diner welcomes you at 65 rue du Général de Gaulle, right in the centre of Fréjus. Artisan baker’s bread, fresh butcher’s meat.',
     },
     lien: '',
   },
 
   ticker: {
-    fr: [
-      'Nouvelle adresse — centre-ville de Fréjus',
-      'Burgers jusqu’à 3 steaks',
-      'Kumpirs maison',
-      'Sauces maison',
-      'Sur place & à emporter',
-      'Midi & soir, jusqu’à 2 h le week-end',
-    ],
-    en: [
-      'New address — Fréjus city centre',
-      'Burgers up to 3 patties',
-      'Homemade kumpirs',
-      'Homemade sauces',
-      'Dine in & takeaway',
-      'Lunch & dinner, until 2 am at weekends',
-    ],
+    fr: ['Nouvelle adresse — centre-ville de Fréjus', 'Kumpirs maison', 'Pain du boulanger', 'Viande fraîche du boucher', 'Boxs à partager', 'Midi & soir, jusqu’à 2 h le week-end'],
+    en: ['New address — Fréjus city centre', 'Homemade kumpirs', 'Baker’s bread', 'Fresh butcher’s meat', 'Boxes to share', 'Lunch & dinner, until 2 am at weekends'],
   },
 
-  /* ------------------------------------------------------------------------
-   * 5. CHIFFRES CLÉS  (toutes les valeurs sont vérifiables)
-   * ---------------------------------------------------------------------- */
   chiffres: [
-    { valeur: '12', libelle: { fr: 'Burgers à la carte', en: 'Burgers on the menu' } },
-    { valeur: '8', libelle: { fr: 'Kumpirs garnis', en: 'Loaded kumpirs' } },
+    { valeur: '10', libelle: { fr: 'Kumpirs garnis', en: 'Loaded kumpirs' } },
+    { valeur: '8', libelle: { fr: 'Burgers & wraps', en: 'Burgers & wraps' } },
     { valeur: '4,9/5', libelle: { fr: '149 avis Google', en: '149 Google reviews' } },
-    { valeur: '280 g', libelle: { fr: 'Le plus gros steak', en: 'Biggest single patty' } },
+    { valeur: '5', libelle: { fr: 'Boxs à partager', en: 'Boxes to share' } },
   ],
 
-  /* ------------------------------------------------------------------------
-   * 6. SAVOIR-FAIRE  ⚠️  textes éditoriaux à faire valider par le client
-   * ---------------------------------------------------------------------- */
   valeurs: [
-    {
-      icone: 'sauce',
-      titre: { fr: 'Sauces maison', en: 'Homemade sauces' },
-      texte: {
-        fr: 'Poivre, moutarde-miel, curry, masala, fish : préparées en cuisine, pas en bidon.',
-        en: 'Pepper, honey-mustard, curry, masala, fish: made in the kitchen, not out of a drum.',
-      },
-    },
-    {
-      icone: 'pomme',
-      titre: { fr: 'Kumpirs au four', en: 'Oven-baked kumpirs' },
-      texte: {
-        fr: 'Pomme de terre cuite au four, beurre et aligot à la mozzarella. La spécialité de la maison.',
-        en: 'Oven-baked potato, butter and mozzarella aligot. The house speciality.',
-      },
-    },
-    {
-      icone: 'viande',
-      titre: { fr: 'Portions sérieuses', en: 'Serious portions' },
-      texte: {
-        fr: 'Jusqu’à trois steaks de 80 g dans un seul burger, et un steak de 280 g pour le Hulk.',
-        en: 'Up to three 80 g patties in a single burger — and a 280 g steak for the Hulk.',
-      },
-    },
-    {
-      icone: 'veggie',
-      titre: { fr: 'Sans viande aussi', en: 'Meat-free too' },
-      texte: {
-        fr: 'Options véganes, menu enfants, Veggie Burger au steak de soja et halloumi : personne ne reste sur la touche.',
-        en: 'Vegan options, kids menu, soy-patty Veggie Burger with halloumi: nobody gets left out.',
-      },
-    },
+    { icone: 'sauce', titre: { fr: 'Sauces au choix', en: 'Sauce of your choice' },
+      texte: { fr: 'Chaque kumpir et chaque burger s’accompagne de votre sauce au choix.', en: 'Every kumpir and every burger comes with the sauce of your choice.' } },
+    { icone: 'pomme', titre: { fr: 'Kumpirs au four', en: 'Oven-baked kumpirs' },
+      texte: { fr: 'Pomme de terre au four, beurre et aligot à la mozzarella. La spécialité de la maison.', en: 'Baked potato, butter and mozzarella aligot. The house speciality.' } },
+    { icone: 'pain', titre: { fr: 'Pain du boulanger', en: 'Baker’s bread' },
+      texte: { fr: 'Pain artisanal du boulanger et viande fraîche du boucher, comme annoncé sur la carte.', en: 'Artisan baker’s bread and fresh butcher’s meat, just as the menu promises.' } },
+    { icone: 'veggie', titre: { fr: 'Sans viande aussi', en: 'Meat-free too' },
+      texte: { fr: 'Kumpir végétarien, Le Veggie, options véganes et menu enfants.', en: 'Vegetarian kumpir, Le Veggie, vegan options and a kids’ menu.' } },
   ],
 
-  /* ------------------------------------------------------------------------
-   * 7. SIGNATURES  ✅ plats et prix réels (Uber Eats)
-   * ---------------------------------------------------------------------- */
   signatures: [
-    {
-      nom: 'Kumpir Kebab',
-      description: {
-        fr: 'Pomme de terre au four, beurre, aligot à la mozzarella, kebab, champignons frais, oignons caramélisés.',
-        en: 'Baked potato, butter, mozzarella aligot, kebab, fresh mushrooms, caramelised onions.',
-      },
-      prix: 13.9,
-      image: 'assets/img/kumpir.webp',
-      badge: { fr: 'Nº 1 des commandes', en: 'No. 1 best seller' },
-    },
-    {
-      nom: 'So Good Bacon Burger',
-      description: {
-        fr: 'Trois steaks de 80 g, bacon grillé, trois tranches de cheddar, oignons caramélisés, sauce maison.',
-        en: 'Three 80 g patties, grilled bacon, three slices of cheddar, caramelised onions, house sauce.',
-      },
-      prix: 19.5,
-      image: 'assets/img/dish-smash.webp',
-      badge: { fr: 'Le costaud', en: 'The heavyweight' },
-    },
-    {
-      nom: 'Le Frenchie Burger',
-      description: {
-        fr: 'Steak de 180 g, œuf, raclette, bacon, salade, tomate, oignons rouges, sauce poivre ou moutarde-miel.',
-        en: '180 g patty, egg, raclette cheese, bacon, lettuce, tomato, red onions, pepper or honey-mustard sauce.',
-      },
-      prix: 18.5,
-      image: 'assets/img/hero-burger.webp',
-      badge: { fr: 'Populaire', en: 'Popular' },
-    },
+    { nom: 'Kumpir Kebab',
+      description: { fr: 'Pomme de terre au four, beurre, aligot à la mozzarella, kebab, champignons frais, oignons caramélisés.', en: 'Baked potato, butter, mozzarella aligot, kebab, fresh mushrooms, caramelised onions.' },
+      prix: 10.5, prixMenu: 12, image: 'assets/img/kumpir.webp',
+      badge: { fr: 'Nº 1 des commandes', en: 'No. 1 best seller' } },
+    { nom: 'Le Frenchie',
+      description: { fr: 'Steak 100 g, œuf, salade, tomate, raclette, bacon, poivrons.', en: '100 g patty, egg, lettuce, tomato, raclette, bacon, peppers.' },
+      prix: 13, prixMenu: 16, image: 'assets/img/hero-burger.webp',
+      badge: { fr: 'Le préféré', en: 'The favourite' } },
+    { nom: 'Box Famille',
+      description: { fr: '2 So Good Chicken, 2 Double Cheese, 2 Cheeseburgers, frites, oignons crispy, bouteille 1,5 L.', en: '2 So Good Chicken, 2 Double Cheese, 2 Cheeseburgers, fries, crispy onions, 1.5 L bottle.' },
+      prix: 39.9, image: 'assets/img/dish-sides.webp',
+      badge: { fr: 'À partager', en: 'To share' } },
   ],
 
-  /* ------------------------------------------------------------------------
-   * 8. « CHAQUE COUCHE COMPTE »
-   * ---------------------------------------------------------------------- */
   couches: [
-    {
-      num: '01',
-      titre: { fr: 'Le pain', en: 'The bun' },
-      texte: {
-        fr: 'Bun brioché toasté à la commande : assez solide pour tenir trois steaks, assez moelleux pour ne pas s’effondrer.',
-        en: 'Brioche bun toasted to order: sturdy enough for three patties, soft enough not to fall apart.',
-      },
-      image: 'assets/img/ing-bun.webp',
-    },
-    {
-      num: '02',
-      titre: { fr: 'Le steak', en: 'The patty' },
-      texte: {
-        fr: 'De 80 g à 280 g, smashé sur la plancha pour cette croûte caramélisée qui retient le jus.',
-        en: 'From 80 g to 280 g, smashed on the flat top for that caramelised crust that locks in the juices.',
-      },
-      image: 'assets/img/ing-patty.webp',
-    },
-    {
-      num: '03',
-      titre: { fr: 'Le fromage', en: 'The cheese' },
-      texte: {
-        fr: 'Cheddar, emmental, raclette ou roquefort selon le burger. Posé à la seconde où la viande sort du feu.',
-        en: 'Cheddar, emmental, raclette or roquefort depending on the burger. Added the second the meat leaves the heat.',
-      },
-      image: 'assets/img/ing-cheese.webp',
-    },
-    {
-      num: '04',
-      titre: { fr: 'La sauce', en: 'The sauce' },
-      texte: {
-        fr: 'Poivre, moutarde-miel, curry, masala ou fish. Faites maison, choisies par vous.',
-        en: 'Pepper, honey-mustard, curry, masala or fish. Made in-house, chosen by you.',
-      },
-      image: 'assets/img/ing-fresh.webp',
-    },
+    { num: '01', titre: { fr: 'Le pain', en: 'The bun' }, texte: { fr: 'Pain artisanal du boulanger, toasté à la commande.', en: 'Artisan baker’s bread, toasted to order.' }, image: 'assets/img/ing-bun.webp' },
+    { num: '02', titre: { fr: 'La viande', en: 'The meat' }, texte: { fr: 'Viande fraîche du boucher, steak de 80 à 150 g ou poulet pané.', en: 'Fresh butcher’s meat, 80–150 g patty or breaded chicken.' }, image: 'assets/img/ing-patty.webp' },
+    { num: '03', titre: { fr: 'Le fromage', en: 'The cheese' }, texte: { fr: 'Cheddar, raclette, roquefort ou aligot à la mozzarella selon la recette.', en: 'Cheddar, raclette, roquefort or mozzarella aligot, depending on the recipe.' }, image: 'assets/img/ing-cheese.webp' },
+    { num: '04', titre: { fr: 'La sauce', en: 'The sauce' }, texte: { fr: 'Sauce au choix, et 4 toppings offerts sur les kumpirs.', en: 'Sauce of your choice, plus 4 free toppings on kumpirs.' }, image: 'assets/img/ing-fresh.webp' },
   ],
 
-  /* ------------------------------------------------------------------------
-   * 9. À EMPORTER — la tournée de Fréjus
-   * ---------------------------------------------------------------------- */
   emporter: [
-    {
-      lieu: { fr: 'Port Fréjus', en: 'Port Fréjus' },
-      texte: {
-        fr: 'Un burger face aux mâts, encore chaud dans sa boîte.',
-        en: 'A burger facing the masts, still hot in its box.',
-      },
-      image: 'assets/img/emporter-port.webp',
-    },
-    {
-      lieu: { fr: 'Les Arènes', en: 'The Arena' },
-      texte: {
-        fr: '2 000 ans d’histoire, et un kumpir qui ne demande qu’à être mangé.',
-        en: '2,000 years of history, and a kumpir just waiting to be eaten.',
-      },
-      image: 'assets/img/emporter-arenes.webp',
-    },
-    {
-      lieu: { fr: 'La Plage', en: 'The Beach' },
-      texte: {
-        fr: 'Frites, sel de mer, doigts collants. Le combo parfait.',
-        en: 'Fries, sea salt, sticky fingers. The perfect combo.',
-      },
-      image: 'assets/img/emporter-plage.webp',
-    },
-    {
-      lieu: { fr: 'Vieille Ville', en: 'Old Town' },
-      texte: {
-        fr: 'Commandé en bas de la rue, dévoré trois minutes plus tard.',
-        en: 'Ordered at the bottom of the street, devoured three minutes later.',
-      },
-      image: 'assets/img/emporter-vieux.webp',
-    },
+    { lieu: { fr: 'Port Fréjus', en: 'Port Fréjus' }, texte: { fr: 'Un burger face aux mâts, encore chaud dans sa boîte.', en: 'A burger facing the masts, still hot in its box.' }, image: 'assets/img/emporter-port.webp' },
+    { lieu: { fr: 'Les Arènes', en: 'The Arena' }, texte: { fr: '2 000 ans d’histoire, et un kumpir qui ne demande qu’à être mangé.', en: '2,000 years of history, and a kumpir just waiting to be eaten.' }, image: 'assets/img/emporter-arenes.webp' },
+    { lieu: { fr: 'La Plage', en: 'The Beach' }, texte: { fr: 'Frites, sel de mer, doigts collants. Le combo parfait.', en: 'Fries, sea salt, sticky fingers. The perfect combo.' }, image: 'assets/img/emporter-plage.webp' },
+    { lieu: { fr: 'Vieille Ville', en: 'Old Town' }, texte: { fr: 'Commandé en bas de la rue, dévoré trois minutes plus tard.', en: 'Ordered at the bottom of the street, devoured three minutes later.' }, image: 'assets/img/emporter-vieux.webp' },
   ],
 
-  /* ------------------------------------------------------------------------
-   * 10. LA CARTE  ✅ plats et prix réels relevés sur la fiche Uber Eats
-   *     ⚠️  Les rubriques Wraps / Sandwichs / Box / Sides / Menu Enfants /
-   *        Menu Étudiant / Boissons / Desserts existent mais leurs prix
-   *        n'étaient pas affichés : à compléter.
-   * ---------------------------------------------------------------------- */
+  /* =========================================================================
+   * LA CARTE OFFICIELLE — prix relevés sur la carte de l'établissement
+   * prix = seul · prixMenu = menu (frites + boisson) le cas échéant
+   * ======================================================================= */
   carteMention: {
-    fr: 'Prix relevés sur la carte de livraison — susceptibles d’évoluer. Carte complète sur place.',
-    en: 'Prices taken from the delivery menu and subject to change. Full menu available in store.',
+    fr: 'Carte de l’établissement — tout supplément 1,00 € : rösti, œuf, bacon, cheddar, poivrons.',
+    en: 'House menu — any extra 1.00 €: rösti, egg, bacon, cheddar, peppers.',
   },
   carte: [
     {
-      id: 'burgers',
-      titre: { fr: 'Burgers', en: 'Burgers' },
-      sousTitre: {
-        fr: 'Steaks smashés sur la plancha, fromage fondu, sauce au choix.',
-        en: 'Patties smashed on the flat top, melted cheese, sauce of your choice.',
-      },
+      id: 'kumpir', titre: { fr: 'Kumpir', en: 'Kumpir' },
+      sousTitre: { fr: '4 toppings au choix offerts : maïs, olives, poivrons, chou rouge, jalapeños, thon, macédoine.', en: '4 free toppings of your choice: corn, olives, peppers, red cabbage, jalapeños, tuna, macédoine.' },
       items: [
-        { nom: 'Cheese Burger', desc: { fr: 'Steak, cheddar, cornichons, ketchup, mayonnaise.', en: 'Beef patty, cheddar, pickles, ketchup, mayonnaise.' }, prix: 7.5, tags: ['best-seller'] },
-        { nom: 'Double Cheese Burger', desc: { fr: '2 steaks, 2 cheddar, cornichons, ketchup, mayonnaise.', en: '2 patties, 2 cheddar, pickles, ketchup, mayonnaise.' }, prix: 11.5 },
-        { nom: 'So Good Fish Burger', desc: { fr: 'Colin pané, cheddar, salade, sauce fish.', en: 'Breaded pollock, cheddar, lettuce, fish sauce.' }, prix: 12.5 },
-        { nom: 'So Good Chicken Burger', desc: { fr: 'Poulet pané, salade, tomate, oignons rouges, sauce au choix.', en: 'Breaded chicken, lettuce, tomato, red onions, sauce of your choice.' }, prix: 13 },
-        { nom: 'So Good Chicken Beef Burger', desc: { fr: 'Poulet pané, steak 80 g, cheddar, emmental, salade, tomate, oignons rouges.', en: 'Breaded chicken, 80 g patty, cheddar, emmental, lettuce, tomato, red onions.' }, prix: 17.9 },
-        { nom: 'Le Raphaëlois Burger', desc: { fr: 'Steak 100 g, roquette, tomates séchées, chèvre, miel, oignons confits.', en: '100 g patty, rocket, sun-dried tomatoes, goat cheese, honey, confit onions.' }, prix: 17.5 },
-        { nom: 'Le Frenchie Burger', desc: { fr: 'Steak 180 g, œuf, raclette, bacon, salade, tomate, sauce poivre ou moutarde-miel.', en: '180 g patty, egg, raclette, bacon, lettuce, tomato, pepper or honey-mustard sauce.' }, prix: 18.5, tags: ['best-seller'] },
-        { nom: 'Le Veggie Burger', desc: { fr: 'Steak de soja, halloumi, roquette, tomates séchées, mayo à la truffe blanche.', en: 'Soy patty, halloumi, rocket, sun-dried tomatoes, white truffle mayo.' }, prix: 18.7, tags: ['vegetarien'] },
-        { nom: 'So Good 150 Burger', desc: { fr: 'Steak 150 g façon bouchère, 2 cheddar, salade, tomate, oignons rouges, cornichons.', en: '150 g butcher-cut patty, 2 cheddar, lettuce, tomato, red onions, pickles.' }, prix: 18.9 },
-        { nom: 'So Good Bacon Burger', desc: { fr: '3 steaks 80 g, bacon grillé, 3 cheddar, oignons caramélisés, sauce maison.', en: 'Three 80 g patties, grilled bacon, 3 cheddar, caramelised onions, house sauce.' }, prix: 19.5 },
-        { nom: 'Le Master Burger', desc: { fr: 'Steaks 100 g, double cheddar, double raclette, rösti, oignons caramélisés.', en: '100 g patties, double cheddar, double raclette, rösti, caramelised onions.' }, prix: 21.9 },
-        { nom: 'Le Hulk Burger', desc: { fr: 'Steak 280 g, salade, tomate, oignons caramélisés, sauce maison.', en: '280 g patty, lettuce, tomato, caramelised onions, house sauce.' }, prix: 21.9 },
+        { nom: 'Kumpir Kebab', prix: 10.5, prixMenu: 12, desc: { fr: 'Kebab, champignons frais émincés, oignons caramélisés, sauce au choix.', en: 'Kebab, sliced fresh mushrooms, caramelised onions, sauce of your choice.' }, tags: ['best-seller'] },
+        { nom: 'Kumpir Curry', prix: 11, prixMenu: 12.5, desc: { fr: 'Poulet, sauce curry, oignons.', en: 'Chicken, curry sauce, onions.' } },
+        { nom: 'Kumpir Poulet Tandoori', prix: 11.9, prixMenu: 13.4, desc: { fr: 'Poulet tandoori, oignons.', en: 'Tandoori chicken, onions.' } },
+        { nom: 'Kumpir Barbecue', prix: 11.4, prixMenu: 12.9, desc: { fr: 'Poulet, sauce barbecue, oignons.', en: 'Chicken, barbecue sauce, onions.' } },
+        { nom: 'Kumpir Roquefort', prix: 13.9, prixMenu: 15.4, desc: { fr: 'Roquefort, bavette, échalote, champignons.', en: 'Roquefort, flank steak, shallot, mushrooms.' } },
+        { nom: 'Philly Cheese Steak', prix: 13.5, prixMenu: 15, desc: { fr: 'Provolone, poivrons, champignons.', en: 'Provolone, peppers, mushrooms.' } },
+        { nom: 'Kumpir Cannibal', prix: 14, prixMenu: 16, desc: { fr: 'Steak haché, saucisse, oignons, sauce au choix.', en: 'Minced steak, sausage, onions, sauce of your choice.' } },
+        { nom: 'Kumpir Savoyard', prix: 13.5, prixMenu: 15, desc: { fr: 'Lardons, raclette, émincé de champignons, oignons caramélisés.', en: 'Bacon lardons, raclette, sliced mushrooms, caramelised onions.' } },
+        { nom: 'Kumpir Végétarien', prix: 10, prixMenu: 11.5, desc: { fr: 'Légumes du jour.', en: 'Vegetables of the day.' }, tags: ['vegetarien'] },
+        { nom: 'Kumpir Chèvre Miel', prix: 11, prixMenu: 12.5, desc: { fr: 'Chèvre, miel.', en: 'Goat cheese, honey.' } },
       ],
     },
     {
-      id: 'kumpirs',
-      titre: { fr: 'Kumpirs', en: 'Kumpirs' },
-      sousTitre: {
-        fr: 'Pomme de terre cuite au four, beurre et aligot à la mozzarella, garniture généreuse.',
-        en: 'Oven-baked potato, butter and mozzarella aligot, generously topped.',
-      },
+      id: 'burgers', titre: { fr: 'Burgers & Wraps', en: 'Burgers & Wraps' },
+      sousTitre: { fr: 'Menu : frites + boisson.', en: 'Menu: fries + drink.' },
       items: [
-        { nom: 'Kumpir Végétarien', desc: { fr: 'Aligot à la mozzarella et légumes variés.', en: 'Mozzarella aligot and mixed vegetables.' }, prix: 13, tags: ['vegetarien'] },
-        { nom: 'Kumpir Kebab', desc: { fr: 'Kebab, champignons frais émincés, oignons caramélisés, sauce au choix.', en: 'Kebab, sliced fresh mushrooms, caramelised onions, sauce of your choice.' }, prix: 13.9, tags: ['best-seller'] },
-        { nom: 'Kumpir Curry', desc: { fr: 'Poulet, sauce curry et oignons.', en: 'Chicken, curry sauce and onions.' }, prix: 14.3 },
-        { nom: 'Kumpir Poulet Masala', desc: { fr: 'Poulet et sauce masala.', en: 'Chicken and masala sauce.' }, prix: 15.5 },
-        { nom: 'Kumpir Savoyard', desc: { fr: 'Lardons, fromage à raclette, champignons émincés, oignons caramélisés.', en: 'Bacon lardons, raclette cheese, sliced mushrooms, caramelised onions.' }, prix: 17.6 },
-        { nom: 'Kumpir Philly Cheese Steak', desc: { fr: 'Steak et fromage, façon Philly.', en: 'Steak and cheese, Philly style.' }, prix: 17.6, tags: ['best-seller'] },
-        { nom: 'Kumpir Roquefort', desc: { fr: 'Roquefort, bavette, échalote et champignons.', en: 'Roquefort, flank steak, shallot and mushrooms.' }, prix: 18.1 },
-        { nom: 'Kumpir Cannibal', desc: { fr: 'Steak haché, saucisse, oignons, sauce au choix.', en: 'Minced steak, sausage, onions, sauce of your choice.' }, prix: 18.7 },
+        { nom: 'Double Cheese', prix: 8.5, prixMenu: 11.5, desc: { fr: '2 steaks, 2 cheddar, cornichons, ketchup, mayonnaise.', en: '2 patties, 2 cheddar, pickles, ketchup, mayonnaise.' } },
+        { nom: 'So Good 150', prix: 13.9, prixMenu: 16.9, desc: { fr: 'Steak 150 g, salade, tomate, oignons rouges, 2 cheddar.', en: '150 g patty, lettuce, tomato, red onions, 2 cheddar.' } },
+        { nom: 'Le Veggie', prix: 14.4, prixMenu: 17.4, desc: { fr: 'Rösti, cheddar, salade, tomate, oignons caramélisés.', en: 'Rösti, cheddar, lettuce, tomato, caramelised onions.' }, tags: ['vegetarien'] },
+        { nom: 'Wrap Américain', prix: 10.9, prixMenu: 13.9, desc: { fr: 'Poulet pané, cheddar, salade, tomate, oignons, frites, sauce BBQ.', en: 'Breaded chicken, cheddar, lettuce, tomato, onions, fries, BBQ sauce.' } },
+        { nom: 'Le Frenchie', prix: 13, prixMenu: 16, desc: { fr: 'Steak 100 g, œuf, salade, tomate, raclette, bacon, poivrons.', en: '100 g patty, egg, lettuce, tomato, raclette, bacon, peppers.' }, tags: ['best-seller'] },
+        { nom: 'Le Master Bœuf ou Poulet', prix: 16, prixMenu: 19, desc: { fr: '2 steaks 100 g ou 2 filets de poulet panés, double cheddar, raclette, rösti, oignons caramélisés.', en: 'Two 100 g patties or two breaded chicken fillets, double cheddar, raclette, rösti, caramelised onions.' } },
+        { nom: 'So Good Chicken ou Fish', prix: 10, prixMenu: 13, desc: { fr: 'Colin pané ou filet de poulet pané, cheddar, salade, sauce fish.', en: 'Breaded pollock or chicken fillet, cheddar, lettuce, fish sauce.' } },
+        { nom: 'Wrap Chèvre', prix: 9.9, prixMenu: 12.9, desc: { fr: 'Poulet pané, cheddar, chèvre, salade, tomate, oignons, sauce moutarde miel.', en: 'Breaded chicken, cheddar, goat cheese, lettuce, tomato, onions, honey-mustard sauce.' } },
+      ],
+    },
+    {
+      id: 'sandwichs', titre: { fr: 'Sandwichs & Paninis', en: 'Sandwiches & Paninis' },
+      sousTitre: { fr: '', en: '' },
+      items: [
+        { nom: 'Philly Cheese Steak au Poulet', prix: 14.5, prixMenu: 17.5, desc: { fr: 'Pain sous-marin, bœuf/poulet, poivrons, oignons, fromage, salade, mayonnaise, champignons frais.', en: 'Sub roll, beef/chicken, peppers, onions, cheese, lettuce, mayonnaise, fresh mushrooms.' } },
+        { nom: 'Hot Dog Frit', prix: 9, prixMenu: 12, desc: { fr: 'Pain, saucisse frite, cheddar, oignon crispy, ketchup / moutarde américain.', en: 'Bun, fried sausage, cheddar, crispy onion, ketchup / American mustard.' } },
+        { nom: 'Panini 4 Fromages', prix: 8, desc: { fr: 'Pain panini, mélange de quatre fromages fondants.', en: 'Panini bread, four melting cheeses.' }, tags: ['vegetarien'] },
+        { nom: 'Américain Simple', prix: 10, prixMenu: 12, desc: { fr: 'Baguette, 2 steaks de 80 g, frites, cheddar, salade, tomate, oignons, sauce au choix.', en: 'Baguette, two 80 g patties, fries, cheddar, lettuce, tomato, onions, sauce of your choice.' } },
+        { nom: 'Panini Jambon', prix: 6.5, desc: { fr: 'Pain panini, jambon, fromage.', en: 'Panini bread, ham, cheese.' } },
+        { nom: 'Panini Poulet ou Kebab', prix: 8.5, desc: { fr: 'Pain panini, poulet ou kebab, tomate, mozzarella.', en: 'Panini bread, chicken or kebab, tomato, mozzarella.' } },
+      ],
+    },
+    {
+      id: 'boxs', titre: { fr: 'Boxs', en: 'Boxes' },
+      sousTitre: { fr: 'À partager… ou pas.', en: 'To share… or not.' },
+      items: [
+        { nom: 'Box Beef', prix: 14.9, desc: { fr: '2 Double Cheese coupés en deux, frites, canette.', en: 'Two Double Cheese cut in half, fries, can.' } },
+        { nom: 'Box Chicken Beef', prix: 17.5, desc: { fr: '1 So Good Chicken & 1 Double Cheese coupés en deux, frites, canette.', en: 'One So Good Chicken & one Double Cheese cut in half, fries, can.' } },
+        { nom: 'Box Hot-Dogs', prix: 19.9, desc: { fr: '1 hot-dog classique, 1 hot-dog en panure croustillante, frites, canette.', en: 'One classic hot dog, one crispy-breaded hot dog, fries, can.' } },
+        { nom: 'Box Truffe', prix: 23.4, desc: { fr: '1 Cheese & 1 Double Cheese sauce truffe, 4 onion rings, 2 tenders, 4 popcorn poulet, mayo truffe.', en: 'One Cheese & one Double Cheese with truffle sauce, 4 onion rings, 2 tenders, 4 chicken popcorn, truffle mayo.' } },
+        { nom: 'Box Famille', prix: 39.9, desc: { fr: '2 So Good Chicken, 2 Double Cheese, 2 Cheeseburgers, frites, oignons crispy, bouteille 1,5 L.', en: '2 So Good Chicken, 2 Double Cheese, 2 Cheeseburgers, fries, crispy onions, 1.5 L bottle.' } },
+      ],
+    },
+    {
+      id: 'snacking', titre: { fr: 'Snacking', en: 'Snacks' },
+      sousTitre: { fr: 'Supplément : cheddar 1,50 € / bacon 1,50 €.', en: 'Extra: cheddar €1.50 / bacon €1.50.' },
+      items: [
+        { nom: 'Nuggets', prix: 5, desc: { fr: '5 pièces — morceaux de poulet panés, dorés et croustillants.', en: '5 pieces — golden, crispy breaded chicken pieces.' } },
+        { nom: 'Tenders faits maison', prix: 7, desc: { fr: '4 pièces — filets de poulet tenders, panure croustillante.', en: '4 pieces — homemade chicken tenders, crispy coating.' } },
+        { nom: 'Bucket 2XS', prix: 18.4, desc: { fr: 'Tenders + 5 wings (épicés ou non), 1 grande frite et 1 boisson.', en: 'Tenders + 5 wings (spicy or not), one large fries and one drink.' } },
+        { nom: 'Frites Cheddar Bacon', prix: 5.5, desc: { fr: 'Frites nappées de cheddar fondant et de bacon grillé.', en: 'Fries topped with melting cheddar and grilled bacon.' } },
+        { nom: 'Mozza Sticks', prix: 6, desc: { fr: '6 pièces — bâtonnets de mozzarella fondante, panure croustillante.', en: '6 pieces — melting mozzarella sticks, crispy coating.' }, tags: ['vegetarien'] },
+        { nom: 'Wings', prix: 6.5, desc: { fr: '5 pièces — ailes de poulet marinées, croustillantes.', en: '5 pieces — marinated, crispy chicken wings.' } },
+        { nom: 'Frites', prix: 3.5, desc: { fr: 'Frites dorées, croustillantes à souhait.', en: 'Golden fries, crispy to perfection.' }, tags: ['vegetarien'] },
+      ],
+    },
+    {
+      id: 'menus', titre: { fr: 'Menus', en: 'Set Menus' },
+      sousTitre: { fr: 'Menu enfant jusqu’à 11 ans.', en: 'Kids menu up to age 11.' },
+      items: [
+        { nom: 'Menu Étudiant', prix: 10, desc: { fr: 'Steak 80 g ou fish, salade, tomate, oignons rouges, cheddar, ketchup, mayonnaise.', en: '80 g patty or fish, lettuce, tomato, red onions, cheddar, ketchup, mayonnaise.' } },
+        { nom: 'Menu Enfant', prix: 8, desc: { fr: '5 nuggets ou 1 cheeseburger, Capri-Sun, frites, compote.', en: '5 nuggets or 1 cheeseburger, Capri-Sun, fries, fruit purée.' } },
+      ],
+    },
+    {
+      id: 'desserts', titre: { fr: 'Desserts', en: 'Desserts' },
+      sousTitre: { fr: 'Selon disponibilité.', en: 'Depending on availability.' },
+      items: [
+        { nom: 'Tiramisu', prix: 4.5, desc: { fr: 'Parfums selon disponibilité.', en: 'Flavours depending on availability.' }, tags: ['vegetarien'] },
+        { nom: 'Donuts', prix: 3, desc: { fr: 'Chocolat.', en: 'Chocolate.' }, tags: ['vegetarien'] },
+        { nom: 'Tarte au Daim', prix: 3, desc: { fr: 'Selon disponibilité.', en: 'Depending on availability.' }, tags: ['vegetarien'] },
+      ],
+    },
+    {
+      id: 'boissons', titre: { fr: 'Boissons', en: 'Drinks' },
+      sousTitre: { fr: '', en: '' },
+      items: [
+        { nom: 'Soda', prix: 2, desc: { fr: 'Au choix.', en: 'Your choice.' } },
+        { nom: 'Eau', prix: 1.5, desc: { fr: 'Plate.', en: 'Still.' } },
+        { nom: 'Eau pétillante', prix: 2, desc: { fr: 'Gazeuse.', en: 'Sparkling.' } },
       ],
     },
   ],
-  carteAutresRubriques: {
-    fr: ['Wraps', 'Sandwichs', 'Box', 'Sides', 'Menu Enfants', 'Menu Étudiant', 'Boissons', 'Desserts'],
-    en: ['Wraps', 'Sandwiches', 'Box', 'Sides', 'Kids Menu', 'Student Menu', 'Drinks', 'Desserts'],
-  },
-  carteAutresTitre: {
-    fr: 'Et aussi, à retrouver sur place',
-    en: 'Also available in store',
-  },
 
-  /* ------------------------------------------------------------------------
-   * 11. LES PRÉFÉRÉS  ✅ classement réel des commandes (Uber Eats)
-   *      Remplace un bloc « avis clients » : aucun avis réel n'était disponible.
-   *      NB : le titre de la section vit dans i18n.js (favoris.titre1/2).
-   * ---------------------------------------------------------------------- */
+  /* Les préférés — classement Uber Eats, prix repris de la carte officielle */
   favoris: [
-    {
-      rang: 'Nº 1',
-      nom: 'Kumpir Kebab',
-      prix: 13.9,
-      texte: {
-        fr: 'La pomme de terre au four garnie de kebab, aligot et oignons caramélisés.',
-        en: 'The baked potato loaded with kebab, aligot and caramelised onions.',
-      },
-    },
-    {
-      rang: 'Nº 2',
-      nom: 'So Good Bacon Burger',
-      prix: 19.5,
-      texte: {
-        fr: 'Trois steaks, bacon grillé et trois tranches de cheddar. Oui, trois.',
-        en: 'Three patties, grilled bacon and three slices of cheddar. Yes, three.',
-      },
-    },
-    {
-      rang: 'Nº 3',
-      nom: 'Kumpir Cannibal',
-      prix: 18.7,
-      texte: {
-        fr: 'Steak haché, saucisse, oignons. Le kumpir qui ne plaisante pas.',
-        en: 'Minced steak, sausage, onions. The kumpir that means business.',
-      },
-    },
-    {
-      rang: { fr: 'Populaire', en: 'Popular' },
-      nom: 'Cheese Burger',
-      prix: 7.5,
-      texte: {
-        fr: 'Le classique à 7,50 € : steak, cheddar, cornichons, ketchup, mayo.',
-        en: 'The €7.50 classic: patty, cheddar, pickles, ketchup, mayo.',
-      },
-    },
-    {
-      rang: { fr: 'Populaire', en: 'Popular' },
-      nom: 'Le Frenchie Burger',
-      prix: 18.5,
-      texte: {
-        fr: '180 g de bœuf, œuf, raclette et bacon. Très français, très copieux.',
-        en: '180 g of beef, egg, raclette and bacon. Very French, very filling.',
-      },
-    },
-    {
-      rang: { fr: 'Populaire', en: 'Popular' },
-      nom: 'Kumpir Philly Cheese Steak',
-      prix: 17.6,
-      texte: {
-        fr: 'Steak et fromage fondant, dans la pomme de terre au four.',
-        en: 'Steak and melting cheese, in the baked potato.',
-      },
-    },
+    { rang: 'Nº 1', nom: 'Kumpir Kebab', prix: 10.5, texte: { fr: 'La pomme de terre au four garnie de kebab, aligot et oignons caramélisés.', en: 'The baked potato loaded with kebab, aligot and caramelised onions.' } },
+    { rang: 'Nº 2', nom: 'Le Frenchie', prix: 13, texte: { fr: 'Steak 100 g, œuf, raclette et bacon. Très français, très copieux.', en: '100 g patty, egg, raclette and bacon. Very French, very filling.' } },
+    { rang: 'Nº 3', nom: 'Kumpir Cannibal', prix: 14, texte: { fr: 'Steak haché, saucisse, oignons. Le kumpir qui ne plaisante pas.', en: 'Minced steak, sausage, onions. The kumpir that means business.' } },
+    { rang: { fr: 'Populaire', en: 'Popular' }, nom: 'Double Cheese', prix: 8.5, texte: { fr: 'Le classique à 8,50 € : 2 steaks, 2 cheddar, cornichons.', en: 'The €8.50 classic: 2 patties, 2 cheddar, pickles.' } },
+    { rang: { fr: 'Populaire', en: 'Popular' }, nom: 'Philly Cheese Steak', prix: 13.5, texte: { fr: 'Provolone, poivrons et champignons fondants.', en: 'Melting provolone, peppers and mushrooms.' } },
+    { rang: { fr: 'À partager', en: 'To share' }, nom: 'Box Famille', prix: 39.9, texte: { fr: 'Six burgers, frites, oignons crispy et bouteille 1,5 L.', en: 'Six burgers, fries, crispy onions and a 1.5 L bottle.' } },
   ],
 
-  /* ------------------------------------------------------------------------
-   * 12. HORAIRES  ⚠️  service du soir 18 h – 1 h vérifié,
-   *      les jours d'ouverture sont À CONFIRMER (7j/7 supposé)
-   *      jours : 1 = lundi … 7 = dimanche
-   * ---------------------------------------------------------------------- */
   horaires: [
-    { jours: [1, 3, 4], creneaux: ['11:00-15:00', '18:00-01:00'] }, // lun, mer, jeu
-    { jours: [5], creneaux: ['11:00-02:00'] },                      // vendredi (continu)
-    { jours: [6], creneaux: ['18:00-02:00'] },                      // samedi
-    // mardi (2) et dimanche (7) : fermé
+    { jours: [1, 3, 4], creneaux: ['11:00-15:00', '18:00-01:00'] },
+    { jours: [5], creneaux: ['11:00-02:00'] },
+    { jours: [6], creneaux: ['18:00-02:00'] },
   ],
-  horairesNote: {
-    fr: 'Fermé le mardi et le dimanche.',
-    en: 'Closed on Tuesdays and Sundays.',
-  },
+  horairesNote: { fr: 'Fermé le mardi et le dimanche.', en: 'Closed on Tuesdays and Sundays.' },
 
-  /* ------------------------------------------------------------------------
-   * 13. COMMANDE EN LIGNE  ✅ lien Uber Eats fourni par le client
-   * ---------------------------------------------------------------------- */
   commande: {
     telephoneActif: true,
-    plateformes: [
-      {
-        nom: 'Uber Eats',
-        url: 'https://www.ubereats.com/fr/store/so-good/AEpML5H6UrK-38zkW4WElw',
-        actif: true,
-      },
-    ],
+    plateformes: [ { nom: 'Uber Eats', url: 'https://www.ubereats.com/fr/store/so-good/AEpML5H6UrK-38zkW4WElw', actif: true } ],
   },
 
-  /* ------------------------------------------------------------------------
-   * 14. GALERIE  ⚠️  visuels d'illustration — à remplacer par les photos du client
-   * ---------------------------------------------------------------------- */
   galerie: [
     { src: 'assets/img/hero-burger.webp', alt: { fr: 'Burger maison So Good Diner', en: 'So Good Diner house burger' } },
     { src: 'assets/img/interior-diner.webp', alt: { fr: 'Salle du restaurant', en: 'The dining room' } },
@@ -443,17 +255,9 @@ window.SO_GOOD = {
     { src: 'assets/img/dish-smash.webp', alt: { fr: 'Smash burger au cheddar', en: 'Cheddar smash burger' } },
   ],
 
-  /* ------------------------------------------------------------------------
-   * 15. FORMULAIRE DE CONTACT
-   *      mode: "mailto"   -> ouvre le logiciel de mail du visiteur (zéro back-end)
-   *      mode: "endpoint" -> POST vers l'URL indiquée (Formspree, Netlify Forms…)
-   * ---------------------------------------------------------------------- */
   contact: {
     mode: 'mailto',
     endpoint: 'https://formspree.io/f/VOTRE_ID',
-    messageSucces: {
-      fr: 'Votre logiciel de messagerie va s’ouvrir avec le message pré-rempli.',
-      en: 'Your mail app will open with the message pre-filled.',
-    },
+    messageSucces: { fr: 'Votre logiciel de messagerie va s’ouvrir avec le message pré-rempli.', en: 'Your mail app will open with the message pre-filled.' },
   },
 };

@@ -41,6 +41,13 @@
     }
     return fmtCache[locale].format(n).replace(/\u202f|\u00a0/g, ' ').trim();
   }
+  /** Affiche « 13,90 € » ou « Seul : 10,50 € · Menu : 12,00 € » */
+  function prixAffiche(it) {
+    if (it && typeof it.prixMenu === 'number') {
+      return ui('carte.seul') + ' : ' + prix(it.prix) + ' · ' + ui('carte.menu') + ' : ' + prix(it.prixMenu);
+    }
+    return prix(it ? it.prix : it);
+  }
   function esc(s) {
     return String(s == null ? '' : s).replace(/[&<>"']/g, function (m) {
       return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m];
@@ -271,7 +278,7 @@
       var items = (c.items || []).map(function (it) {
         var chips = (it.tags || []).map(function (x) { return CHIPS[x] || ''; }).join(' ');
         return '<div class="item"><h3 class="item__nom">' + esc(it.nom) + ' ' + chips + '</h3>' +
-               '<span class="item__prix">' + esc(prix(it.prix)) + '</span>' +
+               '<span class="item__prix">' + esc(prixAffiche(it)) + '</span>' +
                (it.desc ? '<p class="item__desc">' + esc(t(it.desc)) + '</p>' : '') + '</div>';
       }).join('');
       return '<div class="carte__panel' + (on ? ' is-active' : '') + '" role="tabpanel" id="panel-' + c.id +
@@ -279,17 +286,6 @@
              (c.sousTitre ? '<p class="carte__sous">' + esc(t(c.sousTitre)) + '</p>' : '') +
              '<div class="carte__items">' + items + '</div></div>';
     }).join('');
-
-    // Rubriques présentes en salle mais non détaillées
-    var aussi = $('#carte-aussi');
-    if (aussi && D.carteAutresRubriques) {
-      aussi.innerHTML =
-        '<p class="carte__aussi-titre">' + esc(t(D.carteAutresTitre)) + '</p>' +
-        '<ul class="carte__aussi-list">' + t(D.carteAutresRubriques).map(function (r) {
-          return '<li>' + esc(r) + '</li>';
-        }).join('') + '</ul>' +
-        '<p class="carte__aussi-note">' + esc(ui('carte.aussiNote')) + '</p>';
-    }
 
     var mention = $('#carte-mention');
     if (mention) mention.textContent = D.brouillon ? ('⚠ ' + t(D.carteMention)) : t(D.carteMention);
@@ -898,7 +894,7 @@
   window.SO_GOOD_APP = {
     getLang: function () { return lang; },
     setLang: setLang,
-    ui: ui, t: t, prix: prix,
+    ui: ui, t: t, prix: prix, prixAffiche: prixAffiche,
     etatMaintenant: etatMaintenant,
     adresseComplete: adresseComplete
   };

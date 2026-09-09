@@ -40,7 +40,8 @@ Dans `content.js`, toute chaîne traduisible s'écrit `{ fr: '…', en: '…' }`
 Une valeur identique dans les deux langues reste une chaîne simple.
 
 Les **prix sont des nombres** : `prix: 13.9` s'affiche « 13,90 € » en français et
-« €13.90 » en anglais, automatiquement (`Intl.NumberFormat`).
+« €13.90 » en anglais, automatiquement (`Intl.NumberFormat`). Un article peut aussi
+porter un `prixMenu` (prix en formule) ; il s'affiche alors « Seul : X · Menu : Y ».
 
 | Je veux changer… | Je modifie |
 | --- | --- |
@@ -54,8 +55,10 @@ Les **prix sont des nombres** : `prix: 13.9` s'affiche « 13,90 € » en franç
 | Le bandeau défilant | `content.js` → `ticker` |
 | Un libellé, un bouton, un message d'erreur | `i18n.js` (les deux blocs `fr` et `en`) |
 
-⚠️ **Le site est en mode brouillon** : `brouillon: true` affiche un avertissement
-« prix susceptibles d'évoluer » sur la carte. Passer à `false` une fois validé.
+Le drapeau `brouillon` (`content.js`) contrôle l'avertissement « prix susceptibles
+d'évoluer » sous la carte. Il est actuellement à **`false`** : la carte affichée est la
+carte officielle de l'établissement. Le repasser à `true` réaffiche l'avertissement si
+des prix doivent être revus.
 
 La checklist de ce qui reste à récupérer est dans [`CONTENT.md`](CONTENT.md).
 
