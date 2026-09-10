@@ -140,7 +140,7 @@ window.SO_GOOD_I18N = {
     'contact.horaires': 'Horaires',
     'contact.aujourdhui': 'Aujourd’hui · ',
     'contact.appeler': 'Appeler le restaurant',
-    'contact.formTitre': 'Une question, un groupe, un évènement&nbsp;?',
+    'contact.formTitre': 'Une question, un groupe, un événement&nbsp;?',
     'contact.nom': 'Nom',
     'contact.nomPh': 'Votre nom',
     'contact.coordonnee': 'Téléphone ou e-mail',
@@ -184,6 +184,7 @@ window.SO_GOOD_I18N = {
 
     /* Accessibilité */
     'a11y.skip': 'Aller au contenu principal',
+    'a11y.haut': 'Retour en haut',
     'a11y.stars': 'étoiles',
   },
 
@@ -360,6 +361,7 @@ window.SO_GOOD_I18N = {
 
     /* Accessibility */
     'a11y.skip': 'Skip to main content',
+    'a11y.haut': 'Back to top',
     'a11y.stars': 'stars',
   },
 };

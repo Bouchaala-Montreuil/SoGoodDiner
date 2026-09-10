@@ -276,9 +276,9 @@
 
     panels.innerHTML = D.carte.map(function (c, i) {
       var on = i === ongletActif;
-      var items = (c.items || []).map(function (it) {
+      var items = (c.items || []).map(function (it, idx) {
         var chips = (it.tags || []).map(function (x) { return CHIPS[x] || ''; }).join(' ');
-        return '<div class="item"><h3 class="item__nom">' + esc(it.nom) + ' ' + chips + '</h3>' +
+        return '<div class="item" style="--n:' + idx + '"><h3 class="item__nom">' + esc(it.nom) + ' ' + chips + '</h3>' +
                (typeof it.prix === 'number' ? '<span class="item__prix">' + esc(prixAffiche(it)) + '</span>' : '') +
                (it.desc ? '<p class="item__desc">' + esc(t(it.desc)) + '</p>' : '') + '</div>';
       }).join('');
@@ -961,6 +961,35 @@
     })();
   }
 
+  /* Une pluie de braises jaillit du bouton « Commander » (ouvre Uber Eats). */
+  function etincelles() {
+    if (reduce) return;
+    var couche = document.createElement('div');
+    couche.className = 'embers';
+    couche.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(couche);
+    document.addEventListener('click', function (e) {
+      var btn = e.target && e.target.closest ? e.target.closest('[data-commande]') : null;
+      if (!btn) return;
+      var r = btn.getBoundingClientRect();
+      var x = e.clientX || (r.left + r.width / 2);
+      var y = e.clientY || (r.top + r.height / 2);
+      for (var i = 0; i < 14; i++) {
+        var s = document.createElement('span');
+        s.className = 'ember';
+        var ang = Math.random() * Math.PI * 2;
+        var dist = 40 + Math.random() * 90;
+        s.style.left = x + 'px';
+        s.style.top = y + 'px';
+        s.style.setProperty('--dx', (Math.cos(ang) * dist).toFixed(1) + 'px');
+        s.style.setProperty('--dy', (Math.sin(ang) * dist - 30).toFixed(1) + 'px');
+        s.style.animationDelay = (Math.random() * 80).toFixed(0) + 'ms';
+        couche.appendChild(s);
+        (function (el) { setTimeout(function () { if (el.parentNode) el.parentNode.removeChild(el); }, 950); })(s);
+      }
+    });
+  }
+
   function statementFx() {
     var st = $('.statement'), word = $('.statement__word');
     if (!st || !word || reduce) return;
@@ -977,6 +1006,36 @@
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onScroll);
     update();
+  }
+
+  /* --- Titres « décodés » à l'entrée dans l'écran --- */
+  function decodeTitres() {
+    if (reduce) return;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        io.unobserve(e.target);
+        var span = e.target.querySelector('span[data-i18n]') || e.target;
+        scramble(span, span.textContent, 650);
+      });
+    }, { threshold: 0.6 });
+    $$('.eyebrow').forEach(function (el) { io.observe(el); });
+  }
+
+  /* --- Bouton flottant « retour en haut » --- */
+  function retourHaut() {
+    var b = document.createElement('button');
+    b.className = 'totop';
+    b.type = 'button';
+    b.setAttribute('aria-label', ui('a11y.haut'));
+    b.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4l8 8-1.4 1.4L13 7.8V20h-2V7.8l-5.6 5.6L4 12z"/></svg>';
+    document.body.appendChild(b);
+    function maj() { b.classList.toggle('is-show', window.scrollY > 600); }
+    window.addEventListener('scroll', maj, { passive: true });
+    maj();
+    b.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+    });
   }
 
   /* =========================================================================
@@ -997,6 +1056,9 @@
     herosVivant();
     projecteur();
     statementFx();
+    decodeTitres();
+    retourHaut();
+    etincelles();
     scrollFx();
     navActive();
     menuMobile();

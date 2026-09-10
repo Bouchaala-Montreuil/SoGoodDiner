@@ -166,7 +166,7 @@ window.SO_GOOD = {
     },
     {
       id: 'hotdogs', titre: { fr: 'Hot Dogs', en: 'Hot Dogs' },
-      sousTitre: { fr: 'Nouveau ! En box de 3 : 19,90 € (prix de lancement).', en: 'New! Box of 3: €19.90 (launch price).' },
+      sousTitre: { fr: 'Nouveau ! Aussi en Box Hot-Dogs : 19,90 € (prix de lancement).', en: 'New! Also as a Hot-Dogs Box: €19.90 (launch price).' },
       items: [
         { nom: 'Hot Dog Classique', desc: { fr: 'Saucisse, ketchup, moutarde américaine.', en: 'Sausage, ketchup, American mustard.' }, tags: ['nouveau'] },
         { nom: 'Hot Dog Montagnard', desc: { fr: 'Saucisse, raclette fondue, oignons croustillants.', en: 'Sausage, melted raclette, crispy onions.' }, tags: ['nouveau'] },
@@ -199,7 +199,7 @@ window.SO_GOOD = {
     },
     {
       id: 'snacking', titre: { fr: 'Snacking', en: 'Snacks' },
-      sousTitre: { fr: 'Supplément : cheddar 1,50 € / bacon 1,50 €.', en: 'Extra: cheddar €1.50 / bacon €1.50.' },
+      sousTitre: { fr: 'Tout supplément : 1,00 € (cheddar, bacon, œuf, rösti…).', en: 'Any extra: €1.00 (cheddar, bacon, egg, rösti…).' },
       items: [
         { nom: 'Nuggets', prix: 5, desc: { fr: '5 pièces — morceaux de poulet panés, dorés et croustillants.', en: '5 pieces — golden, crispy breaded chicken pieces.' } },
         { nom: 'Tenders faits maison', prix: 7, desc: { fr: '4 pièces — filets de poulet tenders, panure croustillante.', en: '4 pieces — homemade chicken tenders, crispy coating.' } },
