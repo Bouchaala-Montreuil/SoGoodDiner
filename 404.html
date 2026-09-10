@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page introuvable — So Good Diner</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+<style>
+.err{min-height:100svh;display:grid;place-items:center;text-align:center;padding:40px 20px;position:relative;overflow:hidden}
+.err__glow{position:absolute;width:60vw;height:60vw;background:radial-gradient(circle,rgba(226,58,46,.22),transparent 65%);filter:blur(30px)}
+.err__inner{position:relative;z-index:2;display:grid;gap:1rem;justify-items:center}
+.err__code{font-family:var(--display);font-size:clamp(5rem,22vw,14rem);line-height:.8;color:transparent;-webkit-text-stroke:2px var(--red)}
+.err h1{font-family:var(--display);text-transform:uppercase;font-size:clamp(1.6rem,5vw,2.6rem);font-weight:400;line-height:1.05}
+.err p{color:rgba(245,238,226,.65);max-width:44ch}
+</style>
+</head>
+<body>
+<main class="err">
+  <div class="err__glow" aria-hidden="true"></div>
+  <div class="err__inner">
+    <div class="err__code">404</div>
+    <h1>Cette page a fondu<br>comme le cheddar</h1>
+    <p>Le lien est cassé ou la page a changé de nom. Rien de grave : les burgers, eux, sont toujours là.</p>
+    <a class="btn btn--solid btn--lg" href="index.html">Retour à l'accueil</a>
+  </div>
+</main>
+</body>
+</html>

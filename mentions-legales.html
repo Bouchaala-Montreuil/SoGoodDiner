@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mentions légales — So Good Diner</title>
+<meta name="robots" content="index,follow">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+<style>
+.legal{max-width:760px;margin-inline:auto;padding:150px 0 90px}
+.legal h1{font-family:var(--display);text-transform:uppercase;font-size:clamp(2.2rem,6vw,3.6rem);line-height:1;margin-bottom:.6rem;font-weight:400}
+.legal h2{font-size:1.05rem;margin:2.2rem 0 .6rem;color:var(--cheddar);text-transform:uppercase;letter-spacing:.1em}
+.legal p,.legal li{color:rgba(245,238,226,.7);font-size:.95rem}
+.legal a{text-decoration:underline}
+.legal .back{display:inline-flex;align-items:center;gap:.5rem;margin-bottom:2rem;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cheddar)}
+.todo{background:rgba(245,179,36,.1);border:1px dashed rgba(245,179,36,.45);border-radius:10px;padding:.8rem 1rem;font-size:.85rem;color:var(--cheddar)}
+</style>
+</head>
+<body>
+<a class="skip" href="#c">Aller au contenu</a>
+<main class="legal wrap" id="c">
+  <a class="back" href="index.html">← Retour au site</a>
+  <h1>Mentions légales</h1>
+  <p>Dernière mise à jour : <span id="maj"></span></p>
+
+  <p class="todo">⚠ Document type à compléter avec les informations juridiques réelles du client (SIREN, capital, RCS, TVA, hébergeur).</p>
+
+  <h2>1. Éditeur du site</h2>
+  <p>
+    So Good Diner<br>
+    Adresse : <em>[adresse à compléter]</em>, 83600 Fréjus, France<br>
+    Téléphone : <em>[à compléter]</em><br>
+    E-mail : <em>[à compléter]</em><br>
+    Forme juridique : <em>[à compléter]</em> — Capital social : <em>[à compléter]</em><br>
+    RCS : <em>[à compléter]</em> — SIREN : <em>[à compléter]</em> — TVA intracommunautaire : <em>[à compléter]</em><br>
+    Responsable de la publication : <em>[à compléter]</em>
+  </p>
+
+  <h2>2. Hébergement</h2>
+  <p>
+    Le site est hébergé par <em>[nom de l’hébergeur]</em>, <em>[adresse]</em>.<br>
+    Ce site est purement statique : aucune base de données, aucun cookie de mesure d’audience.
+  </p>
+
+  <h2>3. Propriété intellectuelle</h2>
+  <p>
+    L’ensemble des contenus de ce site (textes, photographies, logo, charte graphique) est la propriété
+    exclusive de So Good Diner, sauf mention contraire. Toute reproduction, représentation ou diffusion,
+    totale ou partielle, sans autorisation écrite préalable est interdite.
+  </p>
+
+  <h2>4. Photographies</h2>
+  <p>
+    Les visuels actuellement en ligne sont des photographies d’illustration. Elles seront remplacées
+    par les photographies officielles de l’établissement avant la mise en ligne définitive.
+  </p>
+
+  <h2>5. Données personnelles</h2>
+  <p>
+    Les informations transmises via le formulaire de contact servent uniquement à traiter la demande
+    et ne sont ni revendues ni utilisées à des fins publicitaires. Voir la
+    <a href="confidentialite.html">politique de confidentialité</a>.
+  </p>
+
+  <h2>6. Allergènes et origine des viandes</h2>
+  <p>
+    Conformément à la réglementation en vigueur (règlement INCO n°1169/2011), la liste des allergènes
+    ainsi que l’origine des viandes sont tenues à disposition de la clientèle sur place.
+    Les prix et plats présentés en ligne sont indicatifs et peuvent évoluer.
+  </p>
+
+  <h2>7. Médiation de la consommation</h2>
+  <p>
+    En cas de litige, le consommateur peut recourir gratuitement au médiateur de la consommation
+    dont relève l’établissement, ou à la plateforme européenne de règlement en ligne des litiges :
+    <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener">ec.europa.eu/consumers/odr</a>.
+  </p>
+</main>
+<script>document.getElementById('maj').textContent = new Date().toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });</script>
+</body>
+</html>
