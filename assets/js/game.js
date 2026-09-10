@@ -12,10 +12,10 @@
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* Couches du burger (bas → haut), répétées en boucle pour la hauteur. */
-  var LAYERS = ['bun-b', 'patty', 'cheese', 'lettuce', 'tomato', 'bacon', 'bun-t'];
+  var LAYERS = ['bun-b', 'patty', 'cheese', 'lettuce', 'tomato', 'bun-t'];
   var COLORS = {
     'bun-b': '#E8A34C', 'patty': '#6B4226', 'cheese': '#FFC93C',
-    'lettuce': '#7BC950', 'tomato': '#E2483D', 'bacon': '#B0563B', 'bun-t': '#E8A34C'
+    'lettuce': '#7BC950', 'tomato': '#E2483D', 'bun-t': '#E8A34C'
   };
 
   var W = 260, H = 380, PIECE_W = 120, PIECE_H = 22;
@@ -130,8 +130,13 @@
     state.raf = requestAnimationFrame(loop);
   }
 
+  function camShift() {
+    return Math.max(0, state.stack.length * (PIECE_H - 4) - (H - 140));
+  }
   function placeCur() {
+    var bottom = state.stack.length * (PIECE_H - 4) - camShift() + 6;
     state.curEl.style.left = (state.cur.x - PIECE_W / 2) + 'px';
+    state.curEl.style.bottom = bottom + 'px';
     state.curEl.style.background = COLORS[state.cur.layer];
     state.curEl.className = 'game-cur layer-' + state.cur.layer;
   }
@@ -165,9 +170,8 @@
       html += '<div class="game-piece layer-' + p.layer + '" style="left:' + (p.x - PIECE_W / 2) + 'px;bottom:' + (i * (PIECE_H - 4)) + 'px;background:' + COLORS[p.layer] + '"></div>';
     }
     state.stackEl.innerHTML = html;
-    /* caméra : on remonte la pile quand elle dépasse la zone */
-    var shift = Math.max(0, state.stack.length * (PIECE_H - 4) - (H - 120));
-    state.stackEl.style.transform = 'translateY(' + shift + 'px)';
+    /* caméra : on garde le sommet de la pile sous la pièce mobile */
+    state.stackEl.style.transform = 'translateY(' + camShift() + 'px)';
   }
 
   function updateStats() {
