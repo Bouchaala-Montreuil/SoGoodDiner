@@ -54,6 +54,13 @@
     });
   }
 
+  /* Dimensions intrinsèques (anti-CLS) : portrait / intérieur / paysage. */
+  function dims(src) {
+    var d = /hero-burger|burger-hands/.test(src) ? [933, 1400]
+      : /interior-diner/.test(src) ? [1400, 932] : [1400, 933];
+    return ' width="' + d[0] + '" height="' + d[1] + '"';
+  }
+
   function langueInitiale() {
     try {
       var stockee = window.localStorage.getItem(LANG_KEY);
@@ -220,7 +227,7 @@
     if (sig && D.signatures) {
       sig.innerHTML = D.signatures.map(function (s) {
         return '<article class="sig reveal tilt">' +
-          '<div class="sig__media"><img src="' + s.image + '" alt="' + esc(s.nom) + '" loading="lazy">' +
+          '<div class="sig__media"><img src="' + s.image + '" alt="' + esc(s.nom) + '" loading="lazy"' + dims(s.image) + '>' +
           (s.badge ? '<span class="sig__badge">' + esc(t(s.badge)) + '</span>' : '') + '</div>' +
           '<div class="sig__body"><div class="sig__top"><h3 class="sig__nom">' + esc(s.nom) + '</h3></div>' +
           '<p class="sig__desc">' + esc(t(s.description)) + '</p></div></article>';
@@ -231,7 +238,7 @@
     if (rail && D.couches) {
       rail.innerHTML = D.couches.map(function (c) {
         return '<article class="couche reveal"><div class="couche__media"><img src="' + c.image +
-               '" alt="' + esc(t(c.titre)) + '" loading="lazy"></div><div class="couche__body">' +
+               '" alt="' + esc(t(c.titre)) + '" loading="lazy"' + dims(c.image) + '></div><div class="couche__body">' +
                '<span class="couche__num">' + esc(c.num) + '</span><h3>' + esc(t(c.titre)) + '</h3>' +
                '<p>' + esc(t(c.texte)) + '</p></div></article>';
       }).join('');
@@ -240,7 +247,7 @@
     var emp = $('#emp-rail');
     if (emp && D.emporter) {
       emp.innerHTML = D.emporter.map(function (e, i) {
-        return '<article class="emp reveal"><img src="' + e.image + '" alt="' + esc(t(e.lieu)) + '" loading="lazy">' +
+        return '<article class="emp reveal"><img src="' + e.image + '" alt="' + esc(t(e.lieu)) + '" loading="lazy"' + dims(e.image) + '>' +
                '<span class="emp__idx">0' + (i + 1) + '</span><div class="emp__body">' +
                '<h3 class="emp__lieu">' + esc(t(e.lieu)) + '</h3><p class="emp__txt">' + esc(t(e.texte)) + '</p></div></article>';
       }).join('');
@@ -361,7 +368,7 @@
       var alt = t(g.alt);
       return '<button class="gal ' + (formes[i % formes.length] || '') + '" data-gal="' + i + '" ' +
              'aria-label="' + esc(ui('galerie.agrandir') + ' ' + alt) + '">' +
-             '<img src="' + g.src + '" alt="' + esc(alt) + '" loading="lazy">' +
+             '<img src="' + g.src + '" alt="' + esc(alt) + '" loading="lazy"' + dims(g.src) + '>' +
              '<span class="gal__zoom" aria-hidden="true">+</span></button>';
     }).join('');
     $$('.gal', grid).forEach(function (b) { b.addEventListener('click', function () { openLightbox(+b.dataset.gal); }); });
