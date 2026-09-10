@@ -98,7 +98,7 @@ window.SO_GOOD = {
       prix: 10.5, prixMenu: 12, image: 'assets/img/kumpir.webp',
       badge: { fr: 'Nº 1 des commandes', en: 'No. 1 best seller' } },
     { nom: 'Le Frenchie',
-      description: { fr: 'Steak 100 g, œuf, salade, tomate, raclette, bacon, poivrons.', en: '100 g patty, egg, lettuce, tomato, raclette, bacon, peppers.' },
+      description: { fr: 'Steak 100 g, œuf, salade, tomate, raclette, bacon de bœuf, poivrons.', en: '100 g patty, egg, lettuce, tomato, raclette, beef bacon, peppers.' },
       prix: 13, prixMenu: 16, image: 'assets/img/hero-burger.webp',
       badge: { fr: 'Le préféré', en: 'The favourite' } },
     { nom: 'Box Famille',
@@ -126,8 +126,8 @@ window.SO_GOOD = {
    * prix = seul · prixMenu = menu (frites + boisson) le cas échéant
    * ======================================================================= */
   carteMention: {
-    fr: 'Carte de l’établissement — tout supplément 1,00 € : rösti, œuf, bacon, cheddar, poivrons.',
-    en: 'House menu — any extra 1.00 €: rösti, egg, bacon, cheddar, peppers.',
+    fr: 'Carte de l’établissement — tout supplément 1,00 € : rösti, œuf, bacon de bœuf, cheddar, poivrons.',
+    en: 'House menu — any extra 1.00 €: rösti, egg, beef bacon, cheddar, peppers.',
   },
   carte: [
     {
@@ -141,7 +141,7 @@ window.SO_GOOD = {
         { nom: 'Kumpir Roquefort', prix: 13.9, prixMenu: 15.4, desc: { fr: 'Roquefort, bavette, échalote, champignons.', en: 'Roquefort, flank steak, shallot, mushrooms.' } },
         { nom: 'Philly Cheese Steak', prix: 13.5, prixMenu: 15, desc: { fr: 'Provolone, poivrons, champignons.', en: 'Provolone, peppers, mushrooms.' } },
         { nom: 'Kumpir Cannibal', prix: 14, prixMenu: 16, desc: { fr: 'Steak haché, saucisse, oignons, sauce au choix.', en: 'Minced steak, sausage, onions, sauce of your choice.' } },
-        { nom: 'Kumpir Savoyard', prix: 13.5, prixMenu: 15, desc: { fr: 'Lardons, raclette, émincé de champignons, oignons caramélisés.', en: 'Bacon lardons, raclette, sliced mushrooms, caramelised onions.' } },
+        { nom: 'Kumpir Savoyard', prix: 13.5, prixMenu: 15, desc: { fr: 'Lardons de bœuf, raclette, émincé de champignons, oignons caramélisés.', en: 'Beef lardons, raclette, sliced mushrooms, caramelised onions.' } },
         { nom: 'Kumpir Végétarien', prix: 10, prixMenu: 11.5, desc: { fr: 'Légumes du jour.', en: 'Vegetables of the day.' }, tags: ['vegetarien'] },
         { nom: 'Kumpir Chèvre Miel', prix: 11, prixMenu: 12.5, desc: { fr: 'Chèvre, miel.', en: 'Goat cheese, honey.' } },
       ],
@@ -152,11 +152,11 @@ window.SO_GOOD = {
       items: [
         { nom: 'Cheeseburger', prix: 4.5, desc: { fr: 'Steak, cheddar, cornichons, ketchup, mayonnaise.', en: 'Patty, cheddar, pickles, ketchup, mayonnaise.' } },
         { nom: 'Double Cheese', prix: 7.5, prixMenu: 10.5, desc: { fr: '2 steaks, 2 cheddar, cornichons, ketchup, mayonnaise.', en: '2 patties, 2 cheddar, pickles, ketchup, mayonnaise.' }, tags: ['best-seller'] },
-        { nom: 'Le Frenchie', prix: 12.9, prixMenu: 15.9, desc: { fr: 'Steak 100 g, œuf, salade, tomate, oignons rouges, raclette, bacon, sauce poivre ou moutarde-miel.', en: '100 g patty, egg, lettuce, tomato, red onions, raclette, bacon, pepper or honey-mustard sauce.' }, tags: ['best-seller'] },
+        { nom: 'Le Frenchie', prix: 12.9, prixMenu: 15.9, desc: { fr: 'Steak 100 g, œuf, salade, tomate, oignons rouges, raclette, bacon de bœuf, sauce poivre ou moutarde-miel.', en: '100 g patty, egg, lettuce, tomato, red onions, raclette, bacon, pepper or honey-mustard sauce.' }, tags: ['best-seller'] },
         { nom: 'Le Raphaëlois', prix: 12, prixMenu: 15, desc: { fr: 'Steak 100 g, salade, cornichons, tomate, chèvre, miel et oignons confits.', en: '100 g patty, lettuce, pickles, tomato, goat cheese, honey and confit onions.' } },
         { nom: 'Le Master', prix: 16.8, prixMenu: 19.8, desc: { fr: '2 steaks 100 g, double cheddar, double raclette, rösti, oignons caramélisés.', en: 'Two 100 g patties, double cheddar, double raclette, rösti, caramelised onions.' } },
         { nom: 'Le Hulk Burger', prix: 14.8, prixMenu: 17.8, desc: { fr: 'Steak 280 g, salade, tomate, oignons caramélisés, sauce maison.', en: '280 g patty, lettuce, tomato, caramelised onions, house sauce.' } },
-        { nom: 'So Good Bacon', prix: 13.5, prixMenu: 16.5, desc: { fr: '3 steaks 80 g, bacon grillé, 3 tranches de cheddar, oignons caramélisés, sauce au choix.', en: 'Three 80 g patties, grilled bacon, 3 cheddar slices, caramelised onions, sauce of your choice.' } },
+        { nom: 'So Good Bacon', prix: 13.5, prixMenu: 16.5, desc: { fr: '3 steaks 80 g, bacon de bœuf grillé, 3 tranches de cheddar, oignons caramélisés, sauce au choix.', en: 'Three 80 g patties, grilled beef bacon, 3 cheddar slices, caramelised onions, sauce of your choice.' } },
         { nom: 'So Good 150', prix: 12.5, prixMenu: 15.5, desc: { fr: 'Steak 150 g (façon bouchère), salade, tomate, oignons rouges, 2 cheddar, cornichons.', en: '150 g patty (butcher style), lettuce, tomato, red onions, 2 cheddar, pickles.' } },
         { nom: 'So Good Chicken Beef', prix: 12.5, prixMenu: 15.5, desc: { fr: 'Poulet pané, steak 80 g, salade, tomate, oignons rouges, cheddar, emmental, sauce au choix.', en: 'Breaded chicken, 80 g patty, lettuce, tomato, red onions, cheddar, emmental, sauce of your choice.' } },
         { nom: 'So Good Chicken', prix: 9.5, prixMenu: 12.5, desc: { fr: 'Poulet pané, salade, tomate, oignons rouges, sauce au choix.', en: 'Breaded chicken, lettuce, tomato, red onions, sauce of your choice.' } },
@@ -199,12 +199,12 @@ window.SO_GOOD = {
     },
     {
       id: 'snacking', titre: { fr: 'Snacking', en: 'Snacks' },
-      sousTitre: { fr: 'Tout supplément : 1,00 € (cheddar, bacon, œuf, rösti…).', en: 'Any extra: €1.00 (cheddar, bacon, egg, rösti…).' },
+      sousTitre: { fr: 'Tout supplément : 1,00 € (cheddar, bacon de bœuf, œuf, rösti…).', en: 'Any extra: €1.00 (cheddar, beef bacon, egg, rösti…).' },
       items: [
         { nom: 'Nuggets', prix: 5, desc: { fr: '5 pièces — morceaux de poulet panés, dorés et croustillants.', en: '5 pieces — golden, crispy breaded chicken pieces.' } },
         { nom: 'Tenders faits maison', prix: 7, desc: { fr: '4 pièces — filets de poulet tenders, panure croustillante.', en: '4 pieces — homemade chicken tenders, crispy coating.' } },
         { nom: 'Bucket 2XS', prix: 18.4, desc: { fr: 'Tenders + 5 wings (épicés ou non), 1 grande frite et 1 boisson.', en: 'Tenders + 5 wings (spicy or not), one large fries and one drink.' } },
-        { nom: 'Frites Cheddar Bacon', prix: 5.5, desc: { fr: 'Frites nappées de cheddar fondant et de bacon grillé.', en: 'Fries topped with melting cheddar and grilled bacon.' } },
+        { nom: 'Frites Cheddar Bacon', prix: 5.5, desc: { fr: 'Frites nappées de cheddar fondant et de bacon de bœuf grillé.', en: 'Fries topped with melting cheddar and grilled beef bacon.' } },
         { nom: 'Mozza Sticks', prix: 6, desc: { fr: '6 pièces — bâtonnets de mozzarella fondante, panure croustillante.', en: '6 pieces — melting mozzarella sticks, crispy coating.' }, tags: ['vegetarien'] },
         { nom: 'Wings', prix: 6.5, desc: { fr: '5 pièces — ailes de poulet marinées, croustillantes.', en: '5 pieces — marinated, crispy chicken wings.' } },
         { nom: 'Frites', prix: 3.5, desc: { fr: 'Frites dorées, croustillantes à souhait.', en: 'Golden fries, crispy to perfection.' }, tags: ['vegetarien'] },
@@ -241,7 +241,7 @@ window.SO_GOOD = {
   /* Les préférés — classement Uber Eats, prix repris de la carte officielle */
   favoris: [
     { rang: 'Nº 1', nom: 'Kumpir Kebab', prix: 10.5, texte: { fr: 'La pomme de terre au four garnie de kebab, aligot et oignons caramélisés.', en: 'The baked potato loaded with kebab, aligot and caramelised onions.' } },
-    { rang: 'Nº 2', nom: 'Le Frenchie', prix: 12.9, texte: { fr: 'Steak 100 g, œuf, raclette et bacon. Très français, très copieux.', en: '100 g patty, egg, raclette and bacon. Very French, very filling.' } },
+    { rang: 'Nº 2', nom: 'Le Frenchie', prix: 12.9, texte: { fr: 'Steak 100 g, œuf, raclette et bacon de bœuf. Très français, très copieux.', en: '100 g patty, egg, raclette and beef bacon. Very French, very filling.' } },
     { rang: 'Nº 3', nom: 'Kumpir Cannibal', prix: 14, texte: { fr: 'Steak haché, saucisse, oignons. Le kumpir qui ne plaisante pas.', en: 'Minced steak, sausage, onions. The kumpir that means business.' } },
     { rang: { fr: 'Populaire', en: 'Popular' }, nom: 'Double Cheese', prix: 7.5, texte: { fr: 'Le classique à 7,50 € : 2 steaks, 2 cheddar, cornichons.', en: 'The €7.50 classic: 2 patties, 2 cheddar, pickles.' } },
     { rang: { fr: 'Populaire', en: 'Popular' }, nom: 'Philly Cheese Steak', prix: 13.5, texte: { fr: 'Provolone, poivrons et champignons fondants.', en: 'Melting provolone, peppers and mushrooms.' } },
